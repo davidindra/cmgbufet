@@ -1,0 +1,12 @@
+{
+  "name": "davidindra/cmgbufet",
+  "description": "CMG pirate snackbar",
+  "minimum-stability": "stable",
+  "license": "opensource",
+  "authors": [
+    {
+      "name": "David Indra",
+      "email": "mail@davidindra.cz"
+    }
+  ]
+}
