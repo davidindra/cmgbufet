@@ -1,0 +1,18 @@
+{
+  "name": "cmgbufet",
+  "homepage": "https://github.com/davidindra/cmgbufet",
+  "authors": [
+    "David Indra <mail@davidindra.cz>"
+  ],
+  "description": "CMG pirate snackbar",
+  "license": "opensource",
+  "private": true,
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

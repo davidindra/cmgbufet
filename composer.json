@@ -1,13 +1,17 @@
 {
-  "name": "davidindra/cmgbufet",
+  "name": "cmgbufet",
   "description": "CMG pirate snackbar",
-  "homepage": "https://cmgbufet.davidindra.cz",
+  "homepage": "https://github.com/davidindra/cmgbufet",
   "type": "project",
   "license": "opensource",
   "authors": [
     {
       "name": "David Indra",
       "email": "mail@davidindra.cz"
+    },
+    {
+      "name": "Jakub Szymsza",
+      "email": "jakub@szymsza.cz"
     }
   ],
 

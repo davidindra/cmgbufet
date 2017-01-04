@@ -1,0 +1,17 @@
+{
+  "name": "cmgbufet",
+  "description": "CMG pirate snackbar",
+  "homepage": "https://github.com/davidindra/cmgbufet#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidindra/cmgbufet.git"
+  },
+  "author": "David Indra, Jakub Szymsza",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
