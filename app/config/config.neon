@@ -6,20 +6,24 @@ parameters:
 
 
 application:
-	errorPresenter: Error
-	mapping:
-		*: App\*Module\Presenters\*Presenter
+    errorPresenter: Error
+    mapping:
+        *: App\*Module\Presenters\*Presenter
 
 
 session:
-	expiration: 14 days
+    expiration: 14 days
 
 
 services:
-	- App\Model\Slack
+    - App\Model\Slack
 
-	- App\Model\UserManager
-	- App\Forms\FormFactory
-	- App\Forms\SignInFormFactory
-	- App\Forms\SignUpFormFactory
-	router: App\RouterFactory::createRouter
+    - App\Model\UserManager
+    - App\Forms\FormFactory
+    - App\Forms\SignInFormFactory
+    - App\Forms\SignUpFormFactory
+    
+    cacheStorage:
+        class: Nette\Caching\Storages\DevNullStorage
+
+    router: App\RouterFactory::createRouter
