@@ -16,6 +16,8 @@ session:
 
 
 services:
+	- App\Model\Slack
+
 	- App\Model\UserManager
 	- App\Forms\FormFactory
 	- App\Forms\SignInFormFactory
