@@ -6,6 +6,6 @@ cd /var/www/cmgbufet.cz
 composer install 2>&1;
 npm install
 bower install
-grunt install
+grunt
 
 echo 'Deployment finished successfully.'
