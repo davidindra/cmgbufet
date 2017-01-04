@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'Deploying...'
-cd /var/www/cmgbufet.davidindra.cz
+cd /var/www/cmgbufet.cz
 
 composer install 2>&1;
 npm install
