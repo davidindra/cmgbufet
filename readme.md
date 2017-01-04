@@ -8,7 +8,7 @@ Dílčím cílem je, aby byl systém co nejvíce intuitivní a snadno se student
 Autoři
 ------
 
-Autorem je David Indra (https://davidindra.cz) a Jakub Szymsza (http://szymsza.cz).
+Autorem je David Indra (https://davidindra.cz) a také Jakub Szymsza (http://szymsza.cz).
 
 Lokální instalace
 -----------------
