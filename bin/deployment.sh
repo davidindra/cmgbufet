@@ -3,7 +3,7 @@
 echo 'Deploying...'
 cd /var/www/cmgbufet.davidindra.cz
 
-composer install 2>&1
+composer install
 npm install
 bower install
 grunt install
