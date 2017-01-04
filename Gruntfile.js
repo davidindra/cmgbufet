@@ -12,36 +12,59 @@ module.exports = function(grunt) {
 
     // task configuration here
 
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      build: {
-        src: 'www/js/main.js',
-        dest: 'www/js/main.min.js'
-      }
-    },
-
     watch: {
+      CSS: {
+        files: 'www/css/src/*.scss',
+        tasks: ['sass']
+      },
       JS: {
-        files: 'www/js/*.js',
+        files: 'www/js/src/*.js',
         tasks: ['uglify']
       }
     },
 
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        sourceMap: true
+      },
+      build: {
+        expand: true,
+        flatten: true,
+        src: ['www/js/src/*.js'],
+        dest: 'www/js/dist/',
+        ext: '.min.js'
+      }
+    },
+
+    sass: {
+      build: {
+        options: {
+          //style: 'expanded'
+          style: 'compressed'
+        },
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['www/css/src/*.scss'],
+          dest: 'www/css/dist/',
+          ext: '.min.css'
+        }]
+      }
+    },
+
     copy: {
-      main: {
+      dependencies: {
         files: [
           {
             expand: true,
             flatten: true,
             src: [
-              'bower_components/jquery/dist/jquery.js',
               'bower_components/jquery/dist/jquery.min.js',
               'bower_components/jquery/dist/jquery.min.map',
-              'bower_components/materialize/dist/js/*.js',
+              'bower_components/materialize/dist/js/materialize.min.js',
             ],
-            dest: 'www/js'
+            dest: 'www/js/ext'
           },
           {
             expand: true,
@@ -49,7 +72,7 @@ module.exports = function(grunt) {
             src: [
               'bower_components/materialize/dist/css/*.css'
             ],
-            dest: 'www/css'
+            dest: 'www/css/ext'
           },
         ],
       },
@@ -60,8 +83,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // default task
-  grunt.registerTask('default', ['uglify', 'copy']);
+  grunt.registerTask('default', ['uglify', 'sass', 'copy']);
 
 };

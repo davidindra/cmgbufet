@@ -19,7 +19,7 @@ class HomepagePresenter extends BasePresenter
 	{
 		$this->template->anyVariable = 'any value';
 
-		$this->slack->sendMessage('Pokusná zpráva!');
+		//$this->slack->sendMessage('Pokusná zpráva!');
 	}
 
 }

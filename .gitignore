@@ -1,23 +1,22 @@
 # IDE
-.idea/
+/.idea/
 
 # dependencies
-vendor/
-bower_components/
-node_modules/
+/vendor/
+/bower_components/
+/node_modules/
+/.sass-cache/
 
 # Nette
-temp/cache/*
-log/*
-!log/.htaccess
+/temp/cache/*
+/log/*
+!/log/.htaccess
 
 # secrets
-app/config/secrets.json
+/app/config/secrets.json
 
-# built files
-www/js/*.min.js
-
-# imported deps
-www/js/jquery*
-www/js/materialize*
-www/css/materialize*
+# built and external files
+/www/js/dist/*
+/www/css/dist/*
+/www/js/ext/*
+/www/css/ext/*
