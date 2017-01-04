@@ -74,6 +74,14 @@ module.exports = function(grunt) {
             ],
             dest: 'www/css/ext'
           },
+          {
+            expand: true,
+            flatten: true,
+            src: [
+              'bower_components/materialize/dist/fonts/roboto/*'
+            ],
+            dest: 'www/css/fonts/roboto'
+          }
         ],
       },
     }

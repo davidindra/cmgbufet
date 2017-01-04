@@ -6,7 +6,7 @@
     <title>{ifset #title}{include title|striptags} | {/ifset}CMG bufet</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="{$basePath}/css/style.css">
+
     {block head}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/css/ext/materialize.min.css">
@@ -15,6 +15,26 @@
 </head>
 
 <body>
+
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo">
+            <img src="/img/logo.png" alt="CMGbufet">
+        </a>
+        <ul class="right hide-on-med-and-down" n:inner-block="menuitems">
+            <li><a href="#">Úvod</a></li>
+            <li><a href="#">Aktuální nabídka</a></li>
+            <li><a href="#">Kredit (<b>27 Kč</b>)</a></li>
+            <li><a href="#">Můj účet</a></li>
+            <li><a href="#">Odhlášení (<b>Jakub Szymsza</b>)</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            {include menuitems}
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
 
 {include content}
 
