@@ -9,12 +9,17 @@ use App\Model\Slack;
 
 class HomepagePresenter extends BasePresenter
 {
-	/** @inject @var Slack */
+	/**
+	 * @inject
+	 * @var Slack
+	 */
 	public $slack;
 
 	public function renderDefault()
 	{
 		$this->template->anyVariable = 'any value';
+
+		$this->slack->sendMessage('Pokusná zpráva!');
 	}
 
 }

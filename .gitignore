@@ -11,6 +11,9 @@ temp/cache/*
 log/*
 !log/.htaccess
 
+# secrets
+app/config/secrets.json
+
 # built files
 www/js/*.min.js
 
