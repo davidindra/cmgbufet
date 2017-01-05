@@ -13,9 +13,16 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
     protected $secrets;
 
+    /**
+     * @var Nette\Http\SessionSection
+     */
+    public $sessionAcc;
+
     public function startup()
     {
         $this->secrets = json_decode(file_get_contents(__DIR__ . '/../config/secrets.json'));
+
+        $this->sessionAcc = $this->getSession()->getSection('acc');
 
         parent::startup();
     }

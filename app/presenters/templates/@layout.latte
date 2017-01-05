@@ -27,15 +27,14 @@
         <ul class="right hide-on-med-and-down" n:inner-block="menuitems">
             <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:">Úvod</a></li>
             <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:">Aktuální nabídka</a></li>
-            {if $user->isLoggedIn()}
+            {if $user->isLoggedIn() || $presenter->sessionAcc->loggedIn}
                 <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:">Košík (<b>0 položek</b>)</a>
                 </li>
                 <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:">Kredit (<b>27 Kč</b>)</a></li>
                 <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:">Můj účet</a></li>
-                <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>Slávek Müller</b>)</a></li>
+                <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$presenter->sessionAcc->name}</b>)</a></li>
             {else}
                 <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login">Přihlásit se</a></li>
-                <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>Slávek Müller</b>)</a></li>
             {/if}
         </ul>
 

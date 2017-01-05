@@ -26,21 +26,27 @@ class AccountPresenter extends BasePresenter
 				$domain = @$payload['hd'];
 
 				if($domain == 'cmgpv.cz'){
+					$this->sessionAcc->loggedIn = true;
+					$this->sessionAcc->name = $name;
+					$this->sessionAcc->email = $email;
+
 					$this->flashMessage('Přihlášení proběhlo úspěšně!');
+					$this->redirect('Homepage:'); // TODO move to offer as we'll have some
 				}else{
 					$this->flashMessage('Zadaný mail nepatří k doméně @cmgpv.cz, přihlášení nebylo umožněno.');
+					$this->redirect('Account:login');
 				}
 			} else {
 				// Invalid ID token - fake user, do nothing
 			}
-
-			$this->redirect('Homepage:'); // TODO move to offer as we'll have some
 		}
 	}
 
 	public function actionLogout($next = false)
 	{
 		if($next) {
+			$this->sessionAcc->loggedIn = false;
+
 			$this->user->logout(true);
 			$this->flashMessage('Odhlášení proběhlo úspěšně!');
 			$this->redirect('Homepage:');

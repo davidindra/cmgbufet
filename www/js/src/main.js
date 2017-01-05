@@ -34,10 +34,11 @@ function gapiOnSuccess(googleUser){
     var id_token = googleUser.getAuthResponse().id_token;
 
     var profile = googleUser.getBasicProfile();
-    if(profile.getEmail().indexOf('@cmgpv.cz') === -1){
+    if(profile.getEmail().indexOf('@cmgpv.cz') === -1){ // not @cmgpv.cz mail
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
-            location.href = '/ucet/prihlasit?token=' + id_token;
+            Materialize.toast('Zadaný mail nepatří k doméně @cmgpv.cz, přihlášení nebylo umožněno.', 3000, 'rounded');
+            //location.href = '/ucet/prihlasit?token=' + id_token;
         });
     }else {
         location.href = '/ucet/prihlasit?token=' + id_token;
