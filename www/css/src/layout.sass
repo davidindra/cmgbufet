@@ -1,0 +1,52 @@
+@import "colors"
+
+// better pointer
+html
+  cursor: default
+
+// menu items color
+nav ul a
+  color: #444
+
+// mobile menu button color
+.button-collapse
+  color: $coolred
+
+// parallax styling
+.parallax-container
+  min-height: 380px
+  line-height: 0
+  height: auto
+  color: rgba(255,255,255,.9)
+
+  .section
+    width: 100%
+    @media only screen and (max-width : 992px)
+      position: absolute
+      top: 40%
+
+#index-banner .container
+  padding-top: 2ex
+
+#index-banner .section
+  @media only screen and (max-width : 992px)
+    top: 10%
+  @media only screen and (max-width : 600px)
+    top: 0
+
+.btn-large:hover
+  background-color: $coolred-lighter
+
+// header logo
+.brand-logo > img
+  height: 3.5rem
+  width: auto
+  vertical-align: middle
+
+// footer
+.footer-copyright
+  font-size: 13px
+
+footer.page-footer
+  margin: 0
+  padding-top: 0
