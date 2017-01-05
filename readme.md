@@ -8,7 +8,7 @@ Dílčím cílem je, aby byl systém co nejvíce intuitivní a snadno se student
 Autoři
 ------
 
-Autorem je David Indra (https://davidindra.cz) a také Jakub Szymsza (http://szymsza.cz).
+Autorem je David Indra (https://davidindra.cz) a také Jakub Szymsza (https://szymsza.cz).
 
 Lokální instalace
 -----------------
@@ -20,7 +20,7 @@ Pro instalaci eshopu na vlastní počítač z důvodu podílení se na vývoji j
 - nastavení práv pro zápis `temp/` a `log/`
 - vytvoření schématu databáze pomocí Doctrine2
 
-Při vývoji pro kompilaci JS a SCSS je třeba spustit `grunt watch`.
+Při vývoji pro kompilaci JS a SASS je třeba spustit `grunt watch`.
 
 Webový server lze spustit přibližně příkazem `php -S localhost:8000 -t www`.
 
