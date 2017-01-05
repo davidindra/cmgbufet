@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>{ifset #title}{include title|striptags} | {/ifset}CMG bufet</title>
+    <title n:snippet="title">{ifset #title}{include title|striptags} | {/ifset}CMG bufet</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
@@ -19,7 +19,7 @@
 
 <body>
 
-<nav class="white" role="navigation" n:block="nav">
+<nav class="white" role="navigation" n:block="nav" n:snippet="nav">
     <div class="nav-wrapper container">
         <a id="logo-container" n:href="Homepage:" class="brand-logo">
             <img src="/img/logo.png" alt="CMGbufet">
@@ -46,7 +46,9 @@
     </div>
 </nav>
 
+{snippet content}
 {include content}
+{/snippet}
 
 <footer class="page-footer coolred" n:block="footer">
     <div class="footer-copyright center-align">
