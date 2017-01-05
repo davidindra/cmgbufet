@@ -1,12 +1,8 @@
+// puvodni demo styly
+
 nav ul a,
 nav .brand-logo {
   color: #444;
-}
-
-.brand-logo > img{
-  height: 3.5rem;
-  width: auto;
-  vertical-align: middle;
 }
 
 p {
@@ -52,4 +48,20 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+// moje styly
+
+.brand-logo > img{
+  height: 3.5rem;
+  width: auto;
+  vertical-align: middle;
+}
+
+.footer-copyright {
+  font-size: 13px;
+}
+
+footer.page-footer {
+  padding-top: 0;
 }
