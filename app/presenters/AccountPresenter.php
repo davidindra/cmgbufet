@@ -23,7 +23,7 @@ class AccountPresenter extends BasePresenter
 				$userid = $payload['sub'];
 				$email = $payload['email'];
 				$name = $payload['name'];
-				$domain = $payload['hd'];
+				$domain = @$payload['hd'];
 
 				if($domain == 'cmgpv.cz'){
 					$this->flashMessage('Přihlášení proběhlo úspěšně!');

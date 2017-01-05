@@ -31,10 +31,17 @@ function gapiOnLoad() {
 function gapiOnSuccess(googleUser){
     Materialize.toast('Přihlašování...', 3000, 'rounded');
 
-    //var profile = googleUser.getBasicProfile(); //.getName()
     var id_token = googleUser.getAuthResponse().id_token;
 
-    location.href = '/ucet/prihlasit?token=' + id_token;
+    var profile = googleUser.getBasicProfile();
+    if(profile.getEmail().indexOf('@cmgpv.cz') === -1){
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            location.href = '/ucet/prihlasit?token=' + id_token;
+        });
+    }else {
+        location.href = '/ucet/prihlasit?token=' + id_token;
+    }
 }
 
 function gapiOnFailure(error){
