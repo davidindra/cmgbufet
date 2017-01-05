@@ -1,13 +1,12 @@
 <?php
 
 header('HTTP/1.1 503 Service Unavailable');
-header('Retry-After: 300'); // 5 minutes in seconds
+header('Retry-After: 30'); // halfminute
 
 ?>
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="generator" content="Nette Framework">
 
 <style>
 	body { color: #333; background: white; width: 500px; margin: 100px auto }
@@ -15,11 +14,11 @@ header('Retry-After: 300'); // 5 minutes in seconds
 	p { font: 21px/1.5 Georgia,serif; margin: 1.5em 0 }
 </style>
 
-<title>Site is temporarily down for maintenance</title>
+<title>Probíhající údržba | CMG bufet</title>
 
-<h1>We're Sorry</h1>
+<h1>Omlouváme se</h1>
 
-<p>The site is temporarily down for maintenance. Please try again in a few minutes.</p>
+<p>Právě probíhá údržba aplikace - přidáváme nové funkce, aby bylo vše ještě dokonalejší, než je teď :) Zkus to prosím znovu za pár minut.</p>
 
 <?php
 

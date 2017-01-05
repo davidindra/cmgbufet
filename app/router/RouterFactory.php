@@ -17,7 +17,21 @@ class RouterFactory
 	public static function createRouter()
 	{
 		$router = new RouteList;
-		$router[] = new Route('<presenter>/<action>', 'Homepage:default');
+		$router[] = new Route('<presenter>[/<action>]', [
+			'presenter' => [
+				Route::VALUE => 'Homepage',
+				Route::FILTER_TABLE => [
+					'ucet' => 'Account',
+				],
+			],
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'prihlasit' => 'login',
+					'odhlasit' => 'logout'
+				]
+			]
+		]);
 		return $router;
 	}
 
