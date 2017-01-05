@@ -18,17 +18,17 @@
 
 <body>
 
-<nav class="white" role="navigation">
+<nav class="white" role="navigation" n:block="nav">
     <div class="nav-wrapper container">
-        <a id="logo-container" href="/" class="brand-logo">
+        <a id="logo-container" n:href="Homepage:" class="brand-logo">
             <img src="/img/logo.png" alt="CMGbufet">
         </a>
         <ul class="right hide-on-med-and-down" n:inner-block="menuitems">
-            <li><a n:href="Homepage:">Úvod</a></li>
-            <li><a href="#">Aktuální nabídka</a></li>
-            <li><a href="#">Košík (<b>0 položek</b>)</a></li>
-            <li><a href="#">Kredit (<b>27 Kč</b>)</a></li>
-            <li><a href="#">Můj účet</a></li>
+            <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:">Úvod</a></li>
+            <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a href="#">Aktuální nabídka</a></li>
+            <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a href="#">Košík (<b>0 položek</b>)</a></li>
+            <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a href="#">Kredit (<b>27 Kč</b>)</a></li>
+            <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a href="#">Můj účet</a></li>
             <li><a href="#">Odhlášení (<b>Jakub Szymsza</b>)</a></li>
         </ul>
 
@@ -41,7 +41,7 @@
 
 {include content}
 
-<footer class="page-footer coolred">
+<footer class="page-footer coolred" n:block="footer">
     <div class="footer-copyright center-align">
         <div class="container hide-on-small-only">
             Provozovateli jsou
@@ -61,6 +61,10 @@
     <script type="text/javascript" src="/js/ext/materialize.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+    <script type="text/javascript" n:snippet="pageNameJS">
+        var _page = {$presenter->name};
+        var _pageAction = {$presenter->action};
+    </script>
     <script type="text/javascript" src="/js/dist/main.min.js"></script>
 {/block}
 </body>
