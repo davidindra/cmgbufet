@@ -34,7 +34,8 @@
     "tracy/tracy": "^2.4",
     "dg/adminer-custom": "^1.6",
     "guzzlehttp/guzzle": "6.2.2",
-    "ondrs/hi": "v0.2.0"
+    "ondrs/hi": "v0.2.0",
+    "google/apiclient": "^2.1"
   },
   "require-dev": {
     "nette/tester": "^1.6"
