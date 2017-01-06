@@ -10,4 +10,6 @@ npm install
 bower install
 grunt
 
+php www/index.php orm:schema-tool:update --force
+
 echo 'Deployment finished successfully.'
