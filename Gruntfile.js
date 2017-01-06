@@ -81,6 +81,15 @@ module.exports = function(grunt) {
               'bower_components/materialize/dist/fonts/roboto/*'
             ],
             dest: 'www/css/fonts/roboto'
+          },
+          {
+            expand: true,
+            flatten: true,
+            src: [
+              'bower_components/nette.ajax.js/nette.ajax.js',
+              'bower_components/nette.ajax.js/extensions/fidRemove.ajax.js',
+            ],
+            dest: 'www/js/ext'
           }
         ],
       },

@@ -17,6 +17,7 @@
   ],
   "devDependencies": {
     "materialize": "^0.97.8",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "nette.ajax.js": "vojtech-dobes/nette.ajax.js#^2.2.0"
   }
 }
