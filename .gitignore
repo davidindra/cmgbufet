@@ -14,6 +14,7 @@
 
 # secrets
 /app/config/secrets.json
+/app/config/config.local.neon
 
 # built and external files
 /www/js/dist/*
