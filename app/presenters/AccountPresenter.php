@@ -31,7 +31,7 @@ class AccountPresenter extends BasePresenter
 					$this->sessionAcc->email = $email;
 
 					$this->flashMessage('Přihlášení proběhlo úspěšně!');
-					$this->redirect('Offer:');
+					$this->redirect('Homepage:');
 				}else{
 					$this->flashMessage('Zadaný mail nepatří k doméně @cmgpv.cz, přihlášení nebylo umožněno.');
 					$this->redirect('Account:login');
