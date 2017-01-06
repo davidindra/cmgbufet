@@ -19,7 +19,8 @@
     <meta property="og:title" content="CMGbufet.cz">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cmgbufet.cz/">
-    <meta property="og:description" content="Bufet s širokým sortimentem, neomezený nesmyslnými vyhláškami. Nakup u nás, zaručeně si vybereš! :)">
+    <meta property="og:description"
+          content="Bufet s širokým sortimentem, neomezený nesmyslnými vyhláškami. Nakup u nás, zaručeně si vybereš! :)">
     <meta property="og:image" content="https://cmgbufet.cz/img/opengraph.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="650">
@@ -36,26 +37,33 @@
 
 <body>
 
-<nav class="white" role="navigation" n:block="nav" n:snippet="nav">
+{snippet nav}
+<nav class="white" role="navigation" n:block="nav">
     <div class="nav-wrapper container">
         <a id="logo-container" n:href="Homepage:" class="ajax brand-logo">
             <img src="/img/logo.png" alt="CMGbufet">
         </a>
+
         <ul class="right hide-on-med-and-down" n:inner-block="menuitems">
-            <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:" class="ajax">Úvod</a>
-            </li>
-            <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:" class="ajax">Aktuální nabídka</a></li>
-            {if $user->isLoggedIn() || $presenter->sessionAcc->loggedIn}
-                <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:" class="ajax">Košík (<b>0 položek</b>)</a>
+                <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:"
+                            class="ajax">Úvod</a>
                 </li>
-                <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit (<b>27
-                            Kč</b>)</a></li>
-                <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj účet</a></li>
-                <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$presenter->sessionAcc->name}</b>)</a></li>
-            {else}
-                <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login"
-                            class="ajax">Přihlásit se</a></li>
-            {/if}
+                <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:" class="ajax">Aktuální
+                        nabídka</a></li>
+                {if $user->isLoggedIn() || $presenter->sessionAcc->loggedIn}
+                    <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:" class="ajax">Košík
+                            (<b>0 položek</b>)</a>
+                    </li>
+                    <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit
+                            (<b>27
+                                Kč</b>)</a></li>
+                    <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj
+                            účet</a></li>
+                    <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$presenter->sessionAcc->name}</b>)</a></li>
+                {else}
+                    <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login"
+                                class="ajax">Přihlásit se</a></li>
+                {/if}
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -64,6 +72,7 @@
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav>
+{/snippet}
 
 {snippet content}
     {include content}

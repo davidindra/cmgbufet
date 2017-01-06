@@ -7,6 +7,8 @@ function init(ajax) {
             //$.nette.ext('init').buttonSelector = 'button[type="submit"]';
             //$('.no-ajax').netteAjaxOff();
         });
+
+        $('.button-collapse').sideNav();
     }
 
     if (ajax) {
@@ -19,7 +21,6 @@ function init(ajax) {
     console.log(_page + ':' + _pageAction);
     switch(_page){
         case 'Homepage':
-            $('.button-collapse').sideNav();
             $('.parallax').parallax();
             break;
         case 'Account':
