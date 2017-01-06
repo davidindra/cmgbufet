@@ -21,20 +21,23 @@
 
 <nav class="white" role="navigation" n:block="nav" n:snippet="nav">
     <div class="nav-wrapper container">
-        <a id="logo-container" n:href="Homepage:" class="brand-logo">
+        <a id="logo-container" n:href="Homepage:" class="ajax brand-logo">
             <img src="/img/logo.png" alt="CMGbufet">
         </a>
         <ul class="right hide-on-med-and-down" n:inner-block="menuitems">
-            <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:">Úvod</a></li>
-            <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:">Aktuální nabídka</a></li>
+            <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:" class="ajax">Úvod</a>
+            </li>
+            <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:" class="ajax">Aktuální nabídka</a></li>
             {if $user->isLoggedIn() || $presenter->sessionAcc->loggedIn}
-                <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:">Košík (<b>0 položek</b>)</a>
+                <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:" class="ajax">Košík (<b>0 položek</b>)</a>
                 </li>
-                <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:">Kredit (<b>27 Kč</b>)</a></li>
-                <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:">Můj účet</a></li>
+                <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit (<b>27
+                            Kč</b>)</a></li>
+                <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj účet</a></li>
                 <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$presenter->sessionAcc->name}</b>)</a></li>
             {else}
-                <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login">Přihlásit se</a></li>
+                <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login"
+                            class="ajax">Přihlásit se</a></li>
             {/if}
         </ul>
 
@@ -46,7 +49,7 @@
 </nav>
 
 {snippet content}
-{include content}
+    {include content}
 {/snippet}
 
 <footer class="page-footer coolred" n:block="footer">
@@ -65,27 +68,36 @@
 </footer>
 
 {block scripts}
-    <script type="text/javascript" n:snippet="pageNameJS">
+
+{snippet pageNameJS}
+    <script type="text/javascript">
         var _page = {$presenter->name};
         var _pageAction = {$presenter->action};
     </script>
+{/snippet}
 
-    <script type="text/javascript" n:snippet="flashes">
+{snippet flashes}
+    <script type="text/javascript">
         var flashes = [];
         {foreach $flashes as $flash}
         flashes.push({$flash->message});
         {/foreach}
     </script>
+{/snippet}
 
     <script type="text/javascript" src="/js/ext/jquery.min.js"></script>
     <script type="text/javascript" src="/js/ext/materialize.min.js"></script>
 
     <script type="text/javascript" src="/js/ext/nette.ajax.js"></script>
     <script type="text/javascript" src="/js/ext/fidRemove.ajax.js"></script>
+    <script type="text/javascript" src="/js/ext/spinner.ajax.js"></script>
+    <script type="text/javascript" src="/js/ext/history.ajax.js"></script>
 
     <script type="text/javascript" src="/js/dist/main.min.js"></script>
 
     <script src="https://apis.google.com/js/platform.js?onload=gapiOnLoad" async defer></script>
+
 {/block}
+
 </body>
 </html>

@@ -31,7 +31,7 @@ class AccountPresenter extends BasePresenter
 					$this->sessionAcc->email = $email;
 
 					$this->flashMessage('Přihlášení proběhlo úspěšně!');
-					$this->redirect('Homepage:'); // TODO move to offer as we'll have some
+					$this->redirect('Offer:');
 				}else{
 					$this->flashMessage('Zadaný mail nepatří k doméně @cmgpv.cz, přihlášení nebylo umožněno.');
 					$this->redirect('Account:login');
@@ -48,7 +48,7 @@ class AccountPresenter extends BasePresenter
 			$this->sessionAcc->loggedIn = false;
 
 			$this->user->logout(true);
-			$this->flashMessage('Odhlášení proběhlo úspěšně!');
+			$this->flashMessage('Odhlášení proběhlo úspěšně, děkujeme za návštěvu ;)');
 			$this->redirect('Homepage:');
 		}
 	}

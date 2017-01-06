@@ -24,3 +24,7 @@ services:
     - App\Forms\SignUpFormFactory
 
     router: App\RouterFactory::createRouter
+
+
+extensions:
+    ajaxHistory: VojtechDobes\NetteAjax\HistoryExtension

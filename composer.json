@@ -35,7 +35,8 @@
     "dg/adminer-custom": "^1.6",
     "guzzlehttp/guzzle": "6.2.2",
     "ondrs/hi": "v0.2.0",
-    "google/apiclient": "^2.1"
+    "google/apiclient": "^2.1",
+    "vojtech-dobes/nette-ajax-history": "^2.0"
   },
   "require-dev": {
     "nette/tester": "^1.6"
