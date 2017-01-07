@@ -39,7 +39,7 @@ class Slack
     public function sendMessage($text){
         $json = [
             'username' => 'CMGbufet',
-            /*'icon_url' => 'https://',*/
+            'icon_url' => 'https://cmgbufet.cz/img/logo.png',
             /*'channel' => 'general',*/
             'text' => $text
         ];

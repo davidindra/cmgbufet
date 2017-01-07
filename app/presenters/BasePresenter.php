@@ -4,6 +4,7 @@ namespace App\Presenters;
 
 use Nette;
 use App\Model;
+use App\Model\Slack;
 
 
 /**
@@ -13,16 +14,12 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
     protected $secrets;
 
-    /**
-     * @var Nette\Http\SessionSection
-     */
-    public $sessionAcc;
+    /** @var Slack @inject */
+    public $slack;
 
     public function startup()
     {
         $this->secrets = json_decode(file_get_contents(__DIR__ . '/../config/secrets.json'));
-
-        $this->sessionAcc = $this->getSession()->getSection('acc');
 
         parent::startup();
     }

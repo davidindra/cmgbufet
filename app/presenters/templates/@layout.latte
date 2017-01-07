@@ -50,7 +50,7 @@
                 </li>
                 <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:" class="ajax">Aktuální
                         nabídka</a></li>
-                {if $user->isLoggedIn() || $presenter->sessionAcc->loggedIn}
+                {if $user->isLoggedIn()}
                     <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:" class="ajax">Košík
                             (<b>0 položek</b>)</a>
                     </li>
@@ -59,7 +59,7 @@
                                 Kč</b>)</a></li>
                     <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj
                             účet</a></li>
-                    <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$presenter->sessionAcc->name}</b>)</a></li>
+                    <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$user->identity->name}</b>)</a></li>
                 {else}
                     <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login"
                                 class="ajax">Přihlásit se</a></li>
@@ -84,7 +84,7 @@
             Provozovateli jsou
             <a class="brown-text text-lighten-3" href="https://davidindra.cz" target="_blank">David Indra</a>,
             <a class="brown-text text-lighten-3" href="https://adamhradil.cz" target="_blank">Adam Hradil</a> a
-            <a class="brown-text text-lighten-3" href="http://szymsza.cz" target="_blank">Jakub Szymsza</a>.
+            <a class="brown-text text-lighten-3" href="https://szymsza.cz" target="_blank">Jakub Szymsza</a>.
             Všechna práva jsou jim vyhrazena.
         </div>
         <div class="container hide-on-med-and-up">

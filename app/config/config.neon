@@ -16,6 +16,9 @@ session:
 
 
 services:
+    - App\Model\Entity\User
+    - App\Model\Repository\Users
+
     - App\Model\Slack
 
     - App\Model\UserManager
