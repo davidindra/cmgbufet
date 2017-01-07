@@ -23,6 +23,16 @@ class User
     protected $name;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isAdmin;
+
+    public function __construct()
+    {
+        $this->isAdmin = false;
+    }
+
+    /**
      * Creates new pre-filled instance of this class
      * @param string $email
      * @param string $name
