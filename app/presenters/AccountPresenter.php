@@ -49,7 +49,7 @@ class AccountPresenter extends BasePresenter
 						}
 					}
 
-					$hi = new Hi(new FileStorage(__DIR__ . '/../../temp/cache'), new SimpleCurl());
+					$hi = new Hi(new FileStorage(__DIR__ . '/../../temp/cache'), @new SimpleCurl());
 					$this->flashMessage('Ahoj ' . $hi->to(explode(' ', $name)[0])->vocativ . '! :)');
 					$this->redirect('Homepage:');
 				}else{
