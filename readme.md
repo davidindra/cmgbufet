@@ -22,6 +22,8 @@ Pro instalaci eshopu na vlastní počítač z důvodu podílení se na vývoji j
 
 Při vývoji pro kompilaci JS a SASS je třeba spustit `grunt watch`.
 
+Schéma databáze se vytvoří/aktualizuje pomocí `php www/index.php orm:schema-tool:update --force --dump-sql`
+
 Webový server lze spustit přibližně příkazem `php -S localhost:8000 -t www`.
 
 Zda jsou splněny všechny podmínky, které Nette Framework vyžaduje pro svůj běh je možno otestovat pomocí přístupu na adresu `http://localhost:8000/checker`.

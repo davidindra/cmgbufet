@@ -5,7 +5,7 @@ cd /var/www/cmgbufet.cz
 
 rm -r temp/cache/*
 
-composer install 2>&1;
+composer install --no-dev --no-interaction 2>&1;
 npm install
 bower install
 grunt
