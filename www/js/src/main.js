@@ -1,14 +1,16 @@
 function init(ajax) {
     if (!ajax) {
         $(function () {
+            $('.button-collapse').sideNav({
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            });
+
             $.nette.init();
             //$.nette.ext('init').linkSelector = 'a';
             //$.nette.ext('init').formSelector = 'form';
             //$.nette.ext('init').buttonSelector = 'button[type="submit"]';
             //$('.no-ajax').netteAjaxOff();
         });
-
-        $('.button-collapse').sideNav();
     }
 
     if (ajax) {

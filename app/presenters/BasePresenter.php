@@ -27,7 +27,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     public function beforeRender()
     {
         $this->redrawControl('title');
-        $this->redrawControl('nav');
+        //$this->redrawControl('nav');
         $this->redrawControl('content');
         $this->redrawControl('pageNameJS');
         $this->redrawControl('flashes');

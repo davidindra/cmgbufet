@@ -15,6 +15,9 @@ module.exports = function (grunt) {
         // task configuration here
 
         watch: {
+            options: {
+                spawn: false
+            },
             CSS: {
                 files: 'www/css/src/*.sass',
                 tasks: ['sass']
