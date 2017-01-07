@@ -15,6 +15,7 @@ Lokální instalace
 
 Pro instalaci eshopu na vlastní počítač z důvodu podílení se na vývoji je třeba následující:
 
+- vytvoření a doplnění konfiguračních souborů v `app/config`
 - PHP7, MySQL (a její nastavení v `app/config/config.local.neon`)
 - `composer install`, `npm install`, `bower install`, `grunt`
 - nastavení práv pro zápis `temp/` a `log/`
