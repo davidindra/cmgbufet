@@ -17,6 +17,7 @@ Pro instalaci eshopu na vlastní počítač z důvodu podílení se na vývoji j
 
 - vytvoření a doplnění konfiguračních souborů v `app/config`
 - PHP7, MySQL (a její nastavení v `app/config/config.local.neon`)
+- Composer, NPM, Bower, Grunt
 - `composer install`, `npm install`, `bower install`, `grunt`
 - nastavení práv pro zápis `temp/` a `log/`
 - vytvoření schématu databáze pomocí Doctrine2
