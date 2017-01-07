@@ -1,0 +1,14 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=ENTER_DBNAME_HERE'
+	user: DB_USERNAME
+	password: DB_PASSWORD
+	options:
+		lazy: yes
+
+doctrine:
+    user: DB_USERNAME
+    password: 'DB_PASSWORD'
+    dbname: DBNAME_HERE
