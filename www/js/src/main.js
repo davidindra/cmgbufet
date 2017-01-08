@@ -1,17 +1,12 @@
 function init(ajax) {
     if (!ajax) {
         $(function () {
-            $('.button-collapse').sideNav();
-
             $.nette.init();
-            //$.nette.ext('init').linkSelector = 'a';
-            //$.nette.ext('init').formSelector = 'form';
-            //$.nette.ext('init').buttonSelector = 'button[type="submit"]';
-            //$('.no-ajax').netteAjaxOff();
+            $('.button-collapse').sideNav();
         });
-    }
+    }else{
+        $('.button-collapse').sideNav('hide');
 
-    if (ajax) {
         if (typeof ga != 'undefined') {
             ga('send', 'pageview');
         }
@@ -45,7 +40,6 @@ $(document).ready(init());
 
 $.nette.ext('custom', {
     complete: function () {
-        $('.button-collapse').sideNav('hide');
         init(true);
     }
 });
