@@ -1,0 +1,57 @@
+@import "colors"
+@import "materialize-addons"
+
+main#offer
+  .item
+    @media (max-width: $small-bp)
+      text-align: center
+
+    .price,
+    .price-worse
+      display: block
+
+      .money
+        font-size: 1.6em
+        font-weight: bold
+      .caption
+        vertical-align: 4px
+        color: #808080
+        font-size: 0.8em
+        font-style: italic
+
+    .price-worse
+      .money
+        font-size: 1.1em
+
+      .caption
+        vertical-align: 2px
+
+    .buy
+      text-align: right
+      padding-top: 11px
+      @media (max-width: $small-bp)
+        text-align: center
+
+      .counter-number
+        vertical-align: -2px
+        font-weight: bold
+        font-size: 1.2em
+        color: $coolred
+
+      .counter
+        display: inline-block
+        vertical-align: -9px
+        line-height: 18px
+        height: 36px
+        width: 25px
+
+        .counter-plus,
+        .counter-minus
+          width: 100%
+          height: 17px
+          line-height: 18px
+          padding: 0 8px
+          font-weight: bold
+
+      .addtocart
+        padding: 0 7px

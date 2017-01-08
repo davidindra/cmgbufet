@@ -44,25 +44,25 @@
         </a>
 
         <ul class="right hide-on-med-and-down" n:inner-block="menuitems">
-                <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:"
-                            class="ajax">Úvod</a>
+            <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:"
+                        class="ajax">Úvod</a>
+            </li>
+            <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:" class="ajax">Aktuální
+                    nabídka</a></li>
+            {if $user->isLoggedIn()}
+                <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:" class="ajax">Košík
+                        (<b>0 položek</b>)</a>
                 </li>
-                <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:" class="ajax">Aktuální
-                        nabídka</a></li>
-                {if $user->isLoggedIn()}
-                    <li n:class="$presenter->isLinkCurrent('Basket:*') ? active"><a n:href="Basket:" class="ajax">Košík
-                            (<b>0 položek</b>)</a>
-                    </li>
-                    <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit
-                            (<b>27
-                                Kč</b>)</a></li>
-                    <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj
-                            účet</a></li>
-                    <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$user->identity->name}</b>)</a></li>
-                {else}
-                    <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login"
-                                class="ajax">Přihlásit se</a></li>
-                {/if}
+                <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit
+                        (<b>27
+                            Kč</b>)</a></li>
+                <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj
+                        účet</a></li>
+                <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$user->identity->name}</b>)</a></li>
+            {else}
+                <li n:class="$presenter->isLinkCurrent('Account:login') ? active"><a n:href="Account:login"
+                            class="ajax">Přihlásit se</a></li>
+            {/if}
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -73,7 +73,9 @@
 </nav>
 
 {snippet content}
-    {include content}
+    <main id="{$presenter->name|lower}{if $presenter->action != 'default'}-{$presenter->action}{/if}">
+        {include content}
+    </main>
 {/snippet}
 
 <footer class="page-footer coolred" n:block="footer">

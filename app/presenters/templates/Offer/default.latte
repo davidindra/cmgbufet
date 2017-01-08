@@ -1,1 +1,58 @@
 {block content}
+<div class="container">
+    <div class="section">
+        <div class="col s12">
+            <h3 class="coolred-text bold" n:inner-block="title">
+                Aktuální nabídka
+            </h3>
+            <p class="flow-text">
+                Tady najdeš naši aktuální nabídku produktů, určitě si vybereš! ;)<br>
+                Pokud by ti ale přece jen něco scházelo, neváhej a dej nám o tom vědět pomocí formuláře na konci
+                stránky.
+            </p>
+        </div>
+    </div>
+    <div class="section row">
+        {foreach [1,2,3] as $num}
+            <div class="col s12 m4 item">
+                <img src="/img/p/1.jpg" class="responsive-img">
+                <h5>
+                    Pomeranč 100g
+                </h5>
+                <p>
+                    Čerstvý brzy ráno nakoupený pomeranč.
+                </p>
+                <div class="row">
+                    <div class="col s12 m6">
+                    <span class="price">
+                        <span class="money">
+                            7 Kč
+                        </span>
+                        <span class="caption">
+                            platba předem
+                        </span>
+                    </span>
+                    <span class="price-worse">
+                        <span class="money">
+                            9 Kč
+                        </span>
+                        <span class="caption">
+                            platba na místě
+                        </span>
+                    </span>
+                    </div>
+                    <div class="col s12 m6 buy">
+                    <span class="counter-number">
+                        1 ks
+                    </span>
+                    <span class="counter">
+                        <button class="btn coolred counter-plus">+</button><br>
+                        <button class="btn coolred counter-minus">-</button>
+                    </span>
+                        <input type="button" class="btn coolred addtocart" value="Koupit">
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+</div>

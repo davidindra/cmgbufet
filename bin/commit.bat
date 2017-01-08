@@ -1,8 +1,9 @@
 @echo off
+
 git status
 echo
 echo Run only on master branch! Confirm with Enter.
-pause
+pause >nul
 git commit -a
 git checkout live
 git merge master
