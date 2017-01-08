@@ -1,9 +1,7 @@
 function init(ajax) {
     if (!ajax) {
         $(function () {
-            $('.button-collapse').sideNav({
-                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            });
+            $('.button-collapse').sideNav();
 
             $.nette.init();
             //$.nette.ext('init').linkSelector = 'a';
@@ -47,6 +45,7 @@ $(document).ready(init());
 
 $.nette.ext('custom', {
     complete: function () {
+        $('.button-collapse').sideNav('hide');
         init(true);
     }
 });
