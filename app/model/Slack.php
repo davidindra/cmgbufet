@@ -25,9 +25,9 @@ class Slack
     
     public function __construct()
     {
-        //$this->jar = new CookieJar; // setup cookie jar
-
         $this->webhook = json_decode(file_get_contents(__DIR__ . '/../config/secrets.json'))->slackWebHook;
+
+        //$this->jar = new CookieJar; // setup cookie jar
 
         $this->guzzle = new Client([
             /*'base_uri' => $webhook,
@@ -38,8 +38,8 @@ class Slack
 
     public function sendMessage($text){
         $json = [
-            'username' => 'CMGbufet',
-            'icon_url' => 'https://cmgbufet.cz/img/logo.png',
+            'username' => 'CMGbufet.cz',
+            'icon_url' => 'https://cmgbufet.cz/img/logo/black-transparent.png',
             /*'channel' => 'general',*/
             'text' => $text
         ];
