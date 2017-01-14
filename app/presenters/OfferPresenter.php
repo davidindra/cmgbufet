@@ -15,13 +15,15 @@ class OfferPresenter extends BasePresenter
 		$this->template->products = $this->products->getAll();
 	}
 
-	public function actionEdit()
+	public function handleBuy($id)
 	{
-		
-	}
-	
-	public function handleRemove()
-	{
-	    
+		if(!$this->user->isLoggedIn()){
+			$this->redirect('Account:login');
+		}elseif($this->user->isInRole('cantbuy')){
+			$this->flashMessage('Máš zablokováno nakupování.');
+			$this->redirect('Offer:');
+		}
+
+		$this->flashMessage('Produkt&nbsp;<b>' . $this->products->getById($id)->name . '</b>&nbsp;byl přidán do košíku.');
 	}
 }

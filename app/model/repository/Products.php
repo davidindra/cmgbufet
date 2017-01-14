@@ -28,6 +28,14 @@ class Products extends Nette\Object
         return $this->products->findBy(['visible' => true], ['order' => 'ASC']);
     }
 
+    /**
+     * @param int $id
+     * @return Product|null
+     */
+    public function getById($id){
+        return $this->products->findOneBy(['id' => $id]);
+    }
+
     public function __destruct()
     {
         $this->em->flush();

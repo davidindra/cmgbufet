@@ -12,6 +12,9 @@ function init(ajax) {
         }
     }
 
+    // remove GET parameters
+    window.history.pushState('', '', '/' + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
+
     // separate pages control
     console.log(_page + ':' + _pageAction);
     switch(_page){
