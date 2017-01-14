@@ -52,7 +52,9 @@
             <div class="hide-on-med-only clearfix" n:if="$iterator->counter % 3 == 0 && $iterator->counter != 0"></div>
         {/foreach}
         <div n:if="count($products) == 0" class="col s12">
-            <i>Omlouváme se, ale momentálně nenabízíme žádné produkty.</i>
+            <p class="flow-text">
+                Omlouváme se, ale momentálně nenabízíme žádné produkty.
+            </p>
         </div>
     </div>
 </div>
