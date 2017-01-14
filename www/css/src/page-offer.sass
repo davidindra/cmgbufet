@@ -6,8 +6,13 @@ main#offer
     @media (max-width: $small-bp)
       text-align: center
 
+    img
+      max-height: 20em
+
     p
       text-align: justify
+      @media (max-width: $small-bp)
+        text-align: center
       line-height: 1.4rem
       margin: 0.3em 0
 
@@ -39,27 +44,6 @@ main#offer
       //white-space: nowrap
       @media (max-width: $small-bp)
         text-align: center
-
-      //.counter-number
-        vertical-align: -2px
-        font-weight: bold
-        font-size: 1.2em
-        color: $coolred
-
-      //.counter
-        display: inline-block
-        vertical-align: -9px
-        line-height: 18px
-        height: 36px
-        width: 25px
-
-        .counter-plus,
-        .counter-minus
-          width: 100%
-          height: 17px
-          line-height: 18px
-          padding: 0 8px
-          font-weight: bold
 
       .addtocart
         padding: 0 7px

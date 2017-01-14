@@ -13,20 +13,22 @@
         </div>
     </div>
     <div class="section row">
-        {foreach [1,2,3,4,5] as $num}
+        {foreach $products as $product}
             <div class="col s12 m6 l4 item">
-                <img src="/img/p/1.jpg" class="responsive-img">
+                <div class="center">
+                    <img n:attr="src => $product->image" class="responsive-img">
+                </div>
                 <h5>
-                    Pomeranč 100g
+                    {$product->name}
                 </h5>
                 <p>
-                    Čerstvý brzy ráno nakoupený pomeranč, určitě si pochutnáš!
+                    {$product->description|markdown}
                 </p>
                 <div class="row">
                     <div class="col s12 m6">
                     <span class="price">
                         <span class="money">
-                            7 Kč
+                            {$product->priceBetter} Kč
                         </span>
                         <span class="caption">
                             předem
@@ -34,7 +36,7 @@
                     </span>
                     <span class="price-worse">
                         <span class="money">
-                            9 Kč
+                            {$product->priceWorse} Kč
                         </span>
                         <span class="caption">
                             na místě
@@ -42,17 +44,15 @@
                     </span>
                     </div>
                     <div class="col s12 m6 buy">
-                        <!--<span class="counter-number">
-                            1 ks
-                        </span>
-                        <span class="counter">
-                            <button class="btn coolred counter-plus">+</button><br>
-                            <button class="btn coolred counter-minus">-</button>
-                        </span>-->
                         <input type="button" class="btn coolred addtocart" value="Do košíku">
                     </div>
                 </div>
             </div>
+            <div class="hide-on-small-only hide-on-large-only clearfix" n:if="$iterator->counter % 2 == 0 && $iterator->counter != 0"></div>
+            <div class="hide-on-med-only clearfix" n:if="$iterator->counter % 3 == 0 && $iterator->counter != 0"></div>
         {/foreach}
+        <div n:if="count($products) == 0" class="col s12">
+            <i>Omlouváme se, ale momentálně nenabízíme žádné produkty.</i>
+        </div>
     </div>
 </div>

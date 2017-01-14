@@ -37,7 +37,8 @@
     "ondrs/hi": "v0.2.0",
     "google/apiclient": "^2.1",
     "vojtech-dobes/nette-ajax-history": "^2.0",
-    "kdyby/doctrine": "^3.1"
+    "kdyby/doctrine": "^3.1",
+    "erusev/parsedown": "1.6.1"
   },
   "require-dev": {
     "nette/tester": "^1.6"

@@ -26,12 +26,29 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
     public function beforeRender()
     {
-        $this->redrawControl('title');
-        //$this->redrawControl('nav');
-        $this->redrawControl('content');
-        $this->redrawControl('pageNameJS');
-        $this->redrawControl('flashes');
+        if($this->isAjax()) {
+            $this->redrawControl('title');
+            //$this->redrawControl('nav');
+            $this->redrawControl('content');
+            $this->redrawControl('pageNameJS');
+            $this->redrawControl('flashes');
+        }
+
+        $this->setupFilters();
 
         parent::beforeRender();
+    }
+
+    private function setupFilters(){
+        $this->template->addFilter('dump', function ($input) {
+            $html = new Nette\Utils\Html();
+            return $html->setHtml(Debugger::dump($input, true));
+        });
+
+        $this->template->addFilter('markdown', function($input) {
+            $md = \Parsedown::instance();
+            $html = new Nette\Utils\Html();
+            return $html->setHtml($md->line($this->template->getLatte()->invokeFilter('breaklines', [$input])));
+        });
     }
 }
