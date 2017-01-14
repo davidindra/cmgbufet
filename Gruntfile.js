@@ -16,7 +16,8 @@ module.exports = function (grunt) {
 
         watch: {
             options: {
-                spawn: false
+                spawn: false,
+                livereload: true
             },
             CSS: {
                 files: 'www/css/src/*.sass',
@@ -25,6 +26,10 @@ module.exports = function (grunt) {
             JS: {
                 files: 'www/js/src/*.js',
                 tasks: ['uglify']
+            },
+            APP: {
+                files: 'app/**',
+                tasks: []
             }
         },
 

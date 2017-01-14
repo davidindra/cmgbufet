@@ -6,6 +6,11 @@ main#offer
     @media (max-width: $small-bp)
       text-align: center
 
+    p
+      text-align: justify
+      line-height: 1.4rem
+      margin: 0.3em 0
+
     .price,
     .price-worse
       display: block
@@ -14,17 +19,19 @@ main#offer
         font-size: 1.6em
         font-weight: bold
       .caption
+        color: #686868
         vertical-align: 4px
-        color: #808080
-        font-size: 0.8em
-        font-style: italic
+        font-size: 0.95em
 
     .price-worse
+      line-height: 1em
+
       .money
         font-size: 1.1em
 
       .caption
-        vertical-align: 2px
+        vertical-align: 1px
+        font-size: 0.8em
 
     .buy
       text-align: right
@@ -33,13 +40,13 @@ main#offer
       @media (max-width: $small-bp)
         text-align: center
 
-      .counter-number
+      //.counter-number
         vertical-align: -2px
         font-weight: bold
         font-size: 1.2em
         color: $coolred
 
-      .counter
+      //.counter
         display: inline-block
         vertical-align: -9px
         line-height: 18px
