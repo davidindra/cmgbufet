@@ -2,6 +2,7 @@
 
 namespace App\Presenters;
 
+use App\Model\CartException;
 use App\Model\Repository\Products;
 use Nette;
 
@@ -24,15 +25,13 @@ class OfferPresenter extends BasePresenter
 			$this->redirect('Offer:');
 		}
 
-		if($this->products->getById($id) != null) {
-			$cart = $this->session->getSection('cart');
-
-			$cart[$id] = intval($cart[$id]) + 1;
-
-			$this->flashMessage('Produkt&nbsp;<b>' . $this->products->getById($id)->name . '</b>&nbsp;byl přidán do košíku.');
-		}else{
+		try{
+			$product = $this->cart->add($id);
+		}catch(CartException $e){
 			$this->flashMessage('Produkt s ID ' . $id . ' neexistuje.');
 		}
+
+		$this->flashMessage('Produkt&nbsp;<b>' . $product->name . '</b>&nbsp;byl přidán do košíku.');
 
 		$this->redrawControl('content', false);
 	}

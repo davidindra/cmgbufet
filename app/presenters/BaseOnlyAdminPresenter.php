@@ -1,10 +1,15 @@
 <?php
 
-namespace App\Model;
+namespace App\Presenters;
 
 use Nette;
+use App\Model;
 
-trait OnlyAdmin
+
+/**
+ * Base presenter for all application presenters.
+ */
+abstract class BaseOnlyAdminPresenter extends BasePresenter
 {
     public function startup()
     {

@@ -1,9 +1,7 @@
 function init(ajax) {
     if (!ajax) {
-        //$(function () {
         $.nette.init();
         $('.button-collapse').sideNav();
-        //});
     }else{
         $('.button-collapse').sideNav('hide');
 
@@ -13,7 +11,8 @@ function init(ajax) {
     }
 
     // remove GET parameters
-    window.history.pushState('', '', '/' + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
+    //window.history.pushState('', '', '/' + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
+    window.history.pushState('', '', window.location.pathname);
 
     // separate pages control
     console.log(_page + ':' + _pageAction);
@@ -35,7 +34,8 @@ function init(ajax) {
         Materialize.toast(flash, 3000, 'rounded');
     });
 
-    $('.tooltipped').tooltip({delay: 10, html: true, position: 'top'});
+    $('div.material-tooltip').remove();
+    $('.tooltipped').tooltip({delay: 100, html: true, position: 'top'});
 }
 
 // main launching calls

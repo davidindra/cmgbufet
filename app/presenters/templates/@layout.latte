@@ -51,10 +51,11 @@
                     nabídka</a></li>
             {if $user->isLoggedIn()}
                 <li n:class="$presenter->isLinkCurrent('Cart:*') ? active"><a n:href="Cart:" class="ajax" n:inner-snippet="cartItemsNumber">Košík
-                        {if $cartAmount == 0}(<b>0 položek</b>)
-                        {elseif $cartAmount == 1}(<b>1 položka</b>)
-                        {elseif $cartAmount <= 4}(<b>{$cartAmount} položky</b>)
-                        {else}(<b>{$cartAmount} položek</b>){/if}</a>
+                        {var $itemsTotal = $cart->itemsTotal()}
+                        {if $itemsTotal == 0}(<b>0 položek</b>)
+                        {elseif $itemsTotal == 1}(<b>1 položka</b>)
+                        {elseif $itemsTotal <= 4}(<b>{$itemsTotal} položky</b>)
+                        {else}(<b>{$itemsTotal} položek</b>){/if}</a>
                 </li>
                 <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit
                         (<b>27

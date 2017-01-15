@@ -1,10 +1,15 @@
 <?php
 
-namespace App\Model;
+namespace App\Presenters;
 
 use Nette;
+use App\Model;
 
-trait OnlyLoggedIn
+
+/**
+ * Base presenter for all application presenters.
+ */
+abstract class BaseOnlyLoggedInPresenter extends BasePresenter
 {
     public function startup()
     {

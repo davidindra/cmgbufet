@@ -2,6 +2,7 @@
 
 namespace App\Presenters;
 
+use App\Model\Cart;
 use Nette;
 use App\Model;
 use App\Model\Slack;
@@ -17,8 +18,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     /** @var Slack @inject */
     public $slack;
 
-    /** @var Nette\Http\Session @inject */
-    public $session;
+    /** @var Cart @inject */
+    public $cart;
 
     public function startup()
     {
@@ -30,11 +31,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     public function beforeRender()
     {
         if($this->user->isLoggedIn()){
-            $this->template->cart = [];
-            foreach($this->session->getSection('cart') as $item => $amount){
-                $this->template->cart[$item] = $amount;
-            }
-            $this->template->cartAmount = @array_sum($this->template->cart);
+            $this->template->cart = $this->cart;
         }
 
         if($this->isAjax()) {

@@ -49,7 +49,7 @@ class AccountPresenter extends BasePresenter
 						}
 					}
 
-					$this->session->getSection('cart')->remove();
+					$this->cart->purge();
 
 					$hi = new Hi(new FileStorage(__DIR__ . '/../../temp/cache'), @new SimpleCurl());
 					$this->flashMessage('Ahoj ' . $hi->to(explode(' ', $name)[0])->vocativ . '! :)');
