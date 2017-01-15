@@ -6,7 +6,7 @@
                 Nákupní košík
             </h3>
             <p class="flow-text">
-                V nákupním košíku zkontroluješ Tvoji objednávku, zjištíš informace ohledně jejího odběru a zaplacení.
+                V nákupním košíku zkontroluješ Tvoji objednávku, zjistíš informace ohledně jejího odběru a zaplacení.
             </p>
             <p class="flow-text" n:if="$cart->itemsTotal() == 0">
                 Tvůj košík je prázdný :( Nechceš se rovnou podívat na <a n:href="Offer:">aktuální nabídku</a>?
@@ -16,7 +16,7 @@
             <table class="bordered" n:if="$cart->itemsTotal() > 0">
                 <tr>
                     <th>&nbsp;</th>
-                    <th class="right-align">&nbsp;</th>
+                    <th class="right-align">kusů</th>
                     <th class="right-align">1 kus</th>
                     <th class="right-align">na místě</th>
                     <th class="right-align">předem</th>
