@@ -49,6 +49,8 @@ class AccountPresenter extends BasePresenter
 						}
 					}
 
+					$this->session->getSection('cart')->remove();
+
 					$hi = new Hi(new FileStorage(__DIR__ . '/../../temp/cache'), @new SimpleCurl());
 					$this->flashMessage('Ahoj ' . $hi->to(explode(' ', $name)[0])->vocativ . '! :)');
 					$this->redirect('Homepage:');

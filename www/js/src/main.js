@@ -1,9 +1,9 @@
 function init(ajax) {
     if (!ajax) {
-        $(function () {
-            $.nette.init();
-            $('.button-collapse').sideNav();
-        });
+        //$(function () {
+        $.nette.init();
+        $('.button-collapse').sideNav();
+        //});
     }else{
         $('.button-collapse').sideNav('hide');
 
@@ -30,9 +30,12 @@ function init(ajax) {
             break;
     }
 
+    // Materialize things common for multiple pages
     flashes.forEach(function (flash) {
         Materialize.toast(flash, 3000, 'rounded');
     });
+
+    $('.tooltipped').tooltip({delay: 10, html: true, position: 'top'});
 }
 
 // main launching calls

@@ -1,0 +1,66 @@
+{block content}
+<div class="container">
+    <div class="section row">
+        <div class="col s12">
+            <h3 class="coolred-text bold" n:inner-block="title">
+                Nákupní košík
+            </h3>
+            <p class="flow-text">
+                V nákupním košíku zkontroluješ Tvoji objednávku, zjištíš informace ohledně jejího odběru a zaplacení.
+            </p>
+            <p class="flow-text" n:if="$cartAmount == 0">
+                Tvůj košík je prázdný :( Nechceš se rovnou podívat na <a n:href="Offer:">aktuální nabídku</a>?
+            </p>
+        </div>
+        <div class="col s12">
+            <table class="bordered" n:if="$cartAmount > 0">
+                <tr>
+                    <th>&nbsp;</th>
+                    <th class="right-align">&nbsp;</th>
+                    <th class="right-align">1 kus</th>
+                    <th class="right-align">na místě</th>
+                    <th class="right-align">předem</th>
+                    <th class="right-align">&nbsp;</th>
+                </tr>
+                <tr n:foreach="$cart as $id => $amount">
+                    {var $item = $products->getById($id)}
+                    <td class="bold">
+                        {$item->name}
+                    </td>
+                    <td class="right-align">
+                        {$amount} ks
+                    </td>
+                    <td class="right-align">
+                        {$item->priceWorse}/{$item->priceBetter} Kč
+                    </td>
+                    <td class="right-align">
+                        {$item->priceWorse * $amount} Kč
+                    </td>
+                    <td class="right-align">
+                        {$item->priceBetter * $amount} Kč
+                    </td>
+                    <td class="right-align">
+                        <a n:href="remove! $id" class="tooltipped" data-position="top" data-tooltip="Odstranit"><i class="material-icons coolred-text">delete</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold" colspan="3">
+                        Celkem:
+                    </td>
+                    <td class="bold right-align">
+                        {$cartPriceWorseSum} Kč
+                    </td>
+                    <td class="bold right-align">
+                        {$cartPriceBetterSum} Kč
+                    </td>
+                    <td class="right-align">
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="section row">
+
+    </div>
+</div>

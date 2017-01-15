@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f71019b6d5b4505cd1a7a33b91a4015f",
-    "content-hash": "57e9b70201f2afccda2d7412790bd307",
+    "hash": "9852d1cc502c983b4c368f96965fda8c",
+    "content-hash": "4ad062ca3f353b3ad4d27681b09fa1c1",
     "packages": [
         {
             "name": "dg/adminer-custom",
@@ -1447,6 +1447,62 @@
                 "nette"
             ],
             "time": "2016-07-07 20:48:31"
+        },
+        {
+            "name": "kdyby/nette-session-panel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fprochazka/Nette-Session-DebugBar.git",
+                "reference": "62705e25e00eeeca76ec1eaf922a9775bede0b19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fprochazka/Nette-Session-DebugBar/zipball/62705e25e00eeeca76ec1eaf922a9775bede0b19",
+                "reference": "62705e25e00eeeca76ec1eaf922a9775bede0b19",
+                "shasum": ""
+            },
+            "require": {
+                "nette/di": "~2.2",
+                "nette/http": "~2.2",
+                "php": ">=5.3.2",
+                "tracy/tracy": "~2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kdyby\\SessionPanel": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3",
+                "GPLv2",
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "homepage": "http://filip-prochazka.com/"
+                },
+                {
+                    "name": "Pavel Železný",
+                    "homepage": "http://pavelzelezny.cz/"
+                },
+                {
+                    "name": "Jáchym Toušek",
+                    "email": "enumag@gmail.com",
+                    "homepage": "http://enumag.cz/"
+                }
+            ],
+            "description": "Nette DebugBar panel, that allows you inspect your sessions.",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "nette",
+                "panel",
+                "session"
+            ],
+            "time": "2016-10-27 20:48:20"
         },
         {
             "name": "latte/latte",
@@ -3436,7 +3492,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kdyby/nette-session-panel": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -38,7 +38,8 @@
     "google/apiclient": "^2.1",
     "vojtech-dobes/nette-ajax-history": "^2.0",
     "kdyby/doctrine": "^3.1",
-    "erusev/parsedown": "1.6.1"
+    "erusev/parsedown": "1.6.1",
+    "kdyby/nette-session-panel": "@dev"
   },
   "require-dev": {
     "nette/tester": "^1.6"

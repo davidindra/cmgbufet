@@ -17,6 +17,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     /** @var Slack @inject */
     public $slack;
 
+    /** @var Nette\Http\Session @inject */
+    public $session;
+
     public function startup()
     {
         $this->secrets = json_decode(file_get_contents(__DIR__ . '/../config/secrets.json'));
@@ -26,12 +29,24 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
     public function beforeRender()
     {
+        if($this->user->isLoggedIn()){
+            $this->template->cart = [];
+            foreach($this->session->getSection('cart') as $item => $amount){
+                $this->template->cart[$item] = $amount;
+            }
+            $this->template->cartAmount = @array_sum($this->template->cart);
+        }
+
         if($this->isAjax()) {
             $this->redrawControl('title');
             //$this->redrawControl('nav');
             $this->redrawControl('content');
             $this->redrawControl('pageNameJS');
             $this->redrawControl('flashes');
+
+            if($this->user->isLoggedIn()){
+                $this->redrawControl('cartItemsNumber');
+            }
         }
 
         $this->setupFilters();

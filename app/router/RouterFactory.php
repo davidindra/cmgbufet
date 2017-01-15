@@ -22,7 +22,7 @@ class RouterFactory
 				Route::VALUE => 'Homepage',
 				Route::FILTER_TABLE => [
 					'ucet' => 'Account',
-					'kosik' => 'Basket',
+					'kosik' => 'Cart',
 					'kredit' => 'Credit',
 					'nabidka' => 'Offer'
 				],

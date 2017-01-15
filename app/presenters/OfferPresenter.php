@@ -24,6 +24,14 @@ class OfferPresenter extends BasePresenter
 			$this->redirect('Offer:');
 		}
 
-		$this->flashMessage('Produkt&nbsp;<b>' . $this->products->getById($id)->name . '</b>&nbsp;byl přidán do košíku.');
+		if($this->products->getById($id) != null) {
+			$cart = $this->session->getSection('cart');
+
+			$cart[$id] = intval($cart[$id]) + 1;
+
+			$this->flashMessage('Produkt&nbsp;<b>' . $this->products->getById($id)->name . '</b>&nbsp;byl přidán do košíku.');
+		}else{
+			$this->flashMessage('Produkt s ID ' . $id . ' neexistuje.');
+		}
 	}
 }
