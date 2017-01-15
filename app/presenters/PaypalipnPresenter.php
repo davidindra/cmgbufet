@@ -2,20 +2,48 @@
 
 namespace App\Presenters;
 
+use App\Model\Entity\CreditRecord;
+use App\Model\Repository\Users;
 use Nette;
-use Tracy\Debugger;
 
 class PaypalipnPresenter extends BasePresenter
 {
+    /** @var Users @inject */
+    public $users;
+
     public function renderDefault()
     {
         if ($this->verifyIPN()) {
-            $string = '*Příchozí platba!*';
+            $string = '';
             foreach($_POST as $key => $value){
                 $string .= "\n" . $key . ': ' . $value;
             }
+            $this->slack->sendMessage('*Příchozí PP-IPN platba!*```' . $string . '```');
 
-            $this->slack->sendMessage($string);
+            if($_POST['receiver_email'] == 'mail@davidindra.cz'){
+                $userId = $_POST['custom'];
+                $name = $_POST['first_name'] . ' ' . $_POST['last_name'];
+                $gross = $_POST['mc_gross'];
+                $fee = $_POST['mc_fee'];
+
+                if($_POST['mc_currency'] != 'CZK') {
+                    $this->slack->sendMessage('*Pozor!* Poslední připsaná platba byla v jiné měně než CZK, pravděpodobně nebyla započítána správně.');
+                }
+
+                $user = $this->users->getById($userId);
+                if($user){
+                    $creditRecord = new CreditRecord();
+                    $creditRecord->user = $user;
+                    $creditRecord->value = $gross - $fee;
+                    $creditRecord->description = 'Dobití pomocí PayPal (' . $name . '), poplatek PayPalu ' . $fee . ' Kč';
+
+                    $this->credits->add($creditRecord);
+
+                    $this->slack->sendMessage('Právě byla připsána platba pomocí PayPalu (' . $name . ') na účet uživatele *' . $user->name . '* v hodnotě *' . ($gross - $fee) . ' Kč* (původně ' . $gross . ' Kč, poplatek ' . $fee . ' Kč).');
+                }else{
+                    $this->slack->sendMessage('*Pozor!* Poslední přijatá platba byla určena pro uživatele s ID ' . $userId . ', který neexistuje.');
+                }
+            }
 
             header("HTTP/1.1 200 OK");
             die();

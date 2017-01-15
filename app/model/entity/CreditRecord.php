@@ -4,6 +4,7 @@ namespace App\Model\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Kdyby\Doctrine\Entities\Attributes\Identifier;
 use Kdyby\Doctrine\Entities\MagicAccessors;
+use Nette\Utils\DateTime;
 
 /**
  * @ORM\Entity
@@ -31,4 +32,9 @@ class CreditRecord
      * @ORM\Column(type="datetime")
      */
     protected $datetime;
+
+    public function __construct()
+    {
+        $this->datetime = new DateTime();
+    }
 }
