@@ -47,5 +47,7 @@ class CartPresenter extends BasePresenter
 		}else{
 			$this->flashMessage('Zboží s ID ' . intval($id) . ' se v košíku nenachází.');
 		}
+
+		$this->redrawControl('content', false);
 	}
 }

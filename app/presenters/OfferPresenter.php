@@ -33,5 +33,7 @@ class OfferPresenter extends BasePresenter
 		}else{
 			$this->flashMessage('Produkt s ID ' . $id . ' neexistuje.');
 		}
+
+		$this->redrawControl('content', false);
 	}
 }
