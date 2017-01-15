@@ -41,7 +41,7 @@ class PaypalipnPresenter extends BasePresenter
 
                     $this->slack->sendMessage('Právě byla připsána platba pomocí PayPalu (' . $name . ') na účet uživatele *' . $user->name . '* v hodnotě *' . ($gross - $fee) . ' Kč* (původně ' . $gross . ' Kč, poplatek ' . $fee . ' Kč).');
                 }else{
-                    $this->slack->sendMessage('*Pozor!* Poslední přijatá platba byla určena pro uživatele s ID ' . $userId . ', který neexistuje.');
+                    $this->slack->sendMessage('*Pozor!* Poslední přijatá platba byla určena pro uživatele s ID `' . $userId . '`, který neexistuje.');
                 }
             }
 
@@ -55,9 +55,11 @@ class PaypalipnPresenter extends BasePresenter
         if (!count($_POST)) {
             throw new \Exception("Missing POST Data");
         }
+
         $raw_post_data = file_get_contents('php://input');
         $raw_post_array = explode('&', $raw_post_data);
         $myPost = [];
+
         foreach ($raw_post_array as $keyval) {
             $keyval = explode('=', $keyval);
             if (count($keyval) == 2) {
@@ -70,16 +72,19 @@ class PaypalipnPresenter extends BasePresenter
                 $myPost[$keyval[0]] = urldecode($keyval[1]);
             }
         }
+
         // Build the body of the verification post request, adding the _notify-validate command.
         $req = 'cmd=_notify-validate';
         foreach ($myPost as $key => $value) {
             $value = urlencode($value);
             $req .= "&$key=$value";
         }
+
         // Post the data back to PayPal, using curl. Throw exceptions if errors occur.
-        //$ch = curl_init('https://ipnpb.paypal.com/cgi-bin/webscr');
-        //$ch = curl_init('https://www.paypal.com/cgi-bin/webscr');
-        $ch = curl_init('https://www.sandbox.paypal.com/cgi-bin/webscr');
+
+        $ch = curl_init('https://www.paypal.com/cgi-bin/webscr');
+        //$ch = curl_init('https://www.sandbox.paypal.com/cgi-bin/webscr');
+
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -90,6 +95,7 @@ class PaypalipnPresenter extends BasePresenter
         curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Connection: Close']);
+
         $res = curl_exec($ch);
         if (!($res)) {
             $errno = curl_errno($ch);
@@ -97,11 +103,13 @@ class PaypalipnPresenter extends BasePresenter
             curl_close($ch);
             throw new \Exception("cURL error: [$errno] $errstr");
         }
+
         $info = curl_getinfo($ch);
         $http_code = $info['http_code'];
         if ($http_code != 200) {
             throw new \Exception("PayPal responded with http code $http_code");
         }
+
         curl_close($ch);
 
         // Check if PayPal verifies the IPN data, and if so, return true.
