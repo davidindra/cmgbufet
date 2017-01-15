@@ -38,8 +38,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     public function beforeRender()
     {
         if($this->user->isLoggedIn()){
-            $this->template->cart = $this->cart;
-            $this->template->credit = $this->credits->getBalance($this->user->id);
+            $this->template->cartTotal = $this->cart->itemsTotal();
+            $this->template->creditBalance = $this->credits->getBalance($this->user->id);
         }
 
         if($this->isAjax()) {

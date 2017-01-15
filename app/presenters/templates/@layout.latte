@@ -51,14 +51,13 @@
                     nabídka</a></li>
             {if $user->isLoggedIn()}
                 <li n:class="$presenter->isLinkCurrent('Cart:*') ? active"><a n:href="Cart:" class="ajax" n:inner-snippet="cartItemsNumber">Košík
-                        {var $itemsTotal = $cart->itemsTotal()}
-                        {if $itemsTotal == 0}(<b>0 položek</b>)
-                        {elseif $itemsTotal == 1}(<b>1 položka</b>)
-                        {elseif $itemsTotal <= 4}(<b>{$itemsTotal} položky</b>)
-                        {else}(<b>{$itemsTotal} položek</b>){/if}</a>
+                        {if $cartTotal == 0}(<b>0 položek</b>)
+                        {elseif $cartTotal == 1}(<b>1 položka</b>)
+                        {elseif $cartTotal <= 4}(<b>{$cartTotal} položky</b>)
+                        {else}(<b>{$cartTotal} položek</b>){/if}</a>
                 </li>
                 <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit
-                        (<b>{$credit} Kč</b>)</a></li>
+                        (<b>{$creditBalance} Kč</b>)</a></li>
                 <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj
                         účet</a></li>
                 <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$user->identity->name}</b>)</a></li>

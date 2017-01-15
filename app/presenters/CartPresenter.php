@@ -10,7 +10,7 @@ class CartPresenter extends BaseOnlyLoggedInPresenter
 {
 	public function renderDefault()
 	{
-
+		$this->template->cart = $this->cart;
 	}
 
 	public function handleRemove($id){

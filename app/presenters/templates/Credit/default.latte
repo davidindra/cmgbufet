@@ -6,17 +6,48 @@
                 Přehled stavu kreditů
             </h3>
             <p class="flow-text">
-                Tento přehled Ti pomůže zjistit, jaký je stav Tvého kreditového účtu. Můžeš si prohlédnout historii pohybů a především dobít další kredity.
-            </p>
-            <p class="flow-text">
-
+                Aktuální stav Tvého kreditového účtu je <b>{$creditBalance} Kč</b>. Níže si můžeš dobít další kredity,
+                případně si prohlédnout historii útrat a příjmů.
             </p>
         </div>
-        <div class="col s12">
+        <div class="col s12 flow-text">
 
+                <b>Dobít kredity</b> je možné pomocí jednoho ze dvou způsobů - buďto hotovostně u někoho z organizátorů
+                ve škole, nebo bezhotovostně převodem pomocí služby PayPal. Ihned po hotovostním přijetí dobití kreditů
+                se tato změna objeví níže v historii pohybů. Dobití pomocí PayPalu je možné kliknutím zde:
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="Q4DYZS2GSKTT4">
+                <!--<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">-->
+                <input type="image" src="/img/paypal.png" border="0" name="submit"
+                       alt="PayPal - The safer, easier way to pay online!">
+                <!--<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">-->
+            </form>
         </div>
-    </div>
-    <div class="section row">
-
+        <div class="col s12" n:if="$creditRecords">
+            <table class="bordered">
+                <tr>
+                    <th>datum</th>
+                    <th>typ</th>
+                    <th>hodnota</th>
+                    <th>popis</th>
+                </tr>
+                <tr n:foreach="$creditRecords as $creditRecord">
+                    {var $positive = $creditRecord->value > 0}
+                    <td>
+                        {$creditRecord->datetime|date:'d.m.Y G:i'}
+                    </td>
+                    <td class="bold {$positive ? 'green-text' : 'coolred-text'}">
+                        {$positive ? 'příjem' : 'výdaj'}
+                    </td>
+                    <td class="bold">
+                        {$creditRecord->value > 0 ? $creditRecord->value : -$creditRecord->value} Kč
+                    </td>
+                    <td>
+                        {$creditRecord->description}
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
