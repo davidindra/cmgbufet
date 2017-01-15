@@ -58,8 +58,7 @@
                         {else}(<b>{$itemsTotal} položek</b>){/if}</a>
                 </li>
                 <li n:class="$presenter->isLinkCurrent('Credit:*') ? active"><a n:href="Credit:" class="ajax">Kredit
-                        (<b>27
-                            Kč</b>)</a></li>
+                        (<b>{$credit} Kč</b>)</a></li>
                 <li n:class="$presenter->isLinkCurrent('Account:') ? active"><a n:href="Account:" class="ajax">Můj
                         účet</a></li>
                 <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$user->identity->name}</b>)</a></li>

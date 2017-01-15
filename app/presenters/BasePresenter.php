@@ -3,6 +3,7 @@
 namespace App\Presenters;
 
 use App\Model\Cart;
+use App\Model\Repository\CreditRecords;
 use Nette;
 use App\Model;
 use App\Model\Slack;
@@ -21,6 +22,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     /** @var Cart @inject */
     public $cart;
 
+    /** @var CreditRecords @inject */
+    public $credits;
+
     /** @var bool */
     protected $redrawContent = true;
 
@@ -35,6 +39,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     {
         if($this->user->isLoggedIn()){
             $this->template->cart = $this->cart;
+            $this->template->credit = $this->credits->getBalance($this->user->id);
         }
 
         if($this->isAjax()) {

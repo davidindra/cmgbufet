@@ -29,11 +29,19 @@ class Users extends Nette\Object
     }
 
     /**
-     * @param $email
+     * @param string $email
      * @return User|null
      */
     public function getByEmail($email){
         return $this->users->findOneBy(['email' => $email]);
+    }
+
+    /**
+     * @param int $id
+     * @return User|null
+     */
+    public function getById($id){
+        return $this->users->findOneBy(['id' => $id]);
     }
 
     public function __destruct()

@@ -17,9 +17,11 @@ session:
 
 services:
     - App\Model\Entity\User
-    - App\Model\Entity\Product
     - App\Model\Repository\Users
+    - App\Model\Entity\Product
     - App\Model\Repository\Products
+    - App\Model\Entity\CreditRecord
+    - App\Model\Repository\CreditRecords
 
     - App\Model\Slack
     - App\Model\Cart

@@ -27,6 +27,11 @@ class User
      */
     protected $isAdmin;
 
+    /**
+     * @ORM\OneToMany(targetEntity="CreditRecord", mappedBy="user")
+     */
+    protected $credits;
+
     public function __construct()
     {
         $this->isAdmin = false;
