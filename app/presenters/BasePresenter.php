@@ -25,15 +25,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     {
         $this->secrets = json_decode(file_get_contents(__DIR__ . '/../config/secrets.json'));
 
-        parent::startup();
-    }
-
-    public function beforeRender()
-    {
-        if($this->user->isLoggedIn()){
-            $this->template->cart = $this->cart;
-        }
-
         if($this->isAjax()) {
             $this->redrawControl('title');
             //$this->redrawControl('nav');
@@ -44,6 +35,15 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
             if($this->user->isLoggedIn()){
                 $this->redrawControl('cartItemsNumber');
             }
+        }
+
+        parent::startup();
+    }
+
+    public function beforeRender()
+    {
+        if($this->user->isLoggedIn()){
+            $this->template->cart = $this->cart;
         }
 
         $this->setupFilters();
