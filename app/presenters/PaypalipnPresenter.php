@@ -10,7 +10,10 @@ class PaypalipnPresenter extends BasePresenter
     public function renderDefault()
     {
         if ($this->verifyIPN()) {
-            mail('mail@davidindra.cz', 'PP-IPN', Debugger::dump($_POST, true));
+            //mail('mail@davidindra.cz', 'PP-IPN', Debugger::dump($_POST, true));
+            $this->slack->sendMessage(
+                '**Příchozí platba!**' . implode('\n', $_POST)
+            );
 
             header("HTTP/1.1 200 OK");
             die();
