@@ -22,6 +22,6 @@ class CartPresenter extends BaseOnlyLoggedInPresenter
 
 		$this->flashMessage('Zboží bylo z košíku odebráno.');
 
-		$this->redrawControl('content', false);
+		$this->redrawContent = false;
 	}
 }

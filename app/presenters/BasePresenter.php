@@ -21,21 +21,12 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     /** @var Cart @inject */
     public $cart;
 
+    /** @var bool */
+    protected $redrawContent = true;
+
     public function startup()
     {
         $this->secrets = json_decode(file_get_contents(__DIR__ . '/../config/secrets.json'));
-
-        if($this->isAjax()) {
-            $this->redrawControl('title');
-            //$this->redrawControl('nav');
-            $this->redrawControl('content');
-            $this->redrawControl('pageNameJS');
-            $this->redrawControl('flashes');
-
-            if($this->user->isLoggedIn()){
-                $this->redrawControl('cartItemsNumber');
-            }
-        }
 
         parent::startup();
     }
@@ -44,6 +35,18 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     {
         if($this->user->isLoggedIn()){
             $this->template->cart = $this->cart;
+        }
+
+        if($this->isAjax()) {
+            $this->redrawControl('title');
+            //$this->redrawControl('nav');
+            if($this->redrawContent) $this->redrawControl('content');
+            $this->redrawControl('pageNameJS');
+            $this->redrawControl('flashes');
+
+            if($this->user->isLoggedIn()){
+                $this->redrawControl('cartItemsNumber');
+            }
         }
 
         $this->setupFilters();

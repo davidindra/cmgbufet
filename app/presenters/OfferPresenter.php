@@ -33,6 +33,6 @@ class OfferPresenter extends BasePresenter
 
 		$this->flashMessage('Produkt&nbsp;<b>' . $product->name . '</b>&nbsp;byl přidán do košíku.');
 
-		$this->redrawControl('content', false);
+		$this->redrawContent = false;
 	}
 }
