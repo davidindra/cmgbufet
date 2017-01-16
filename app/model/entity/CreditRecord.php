@@ -37,4 +37,20 @@ class CreditRecord
     {
         $this->datetime = new DateTime();
     }
+
+    /**
+     * Is this record positive?
+     * @return bool
+     */
+    public function isPositive(){
+        return $this->value >= 0;
+    }
+
+    /**
+     * Is this record negative?
+     * @return bool
+     */
+    public function isNegative(){
+        return $this->value < 0;
+    }
 }

@@ -19,9 +19,8 @@ class PaypalipnPresenter extends BasePresenter
             foreach($_POST as $key => $value){
                 $string .= $key . ': ' . $value . '; ';
             }
-            $string = iconv('Windows-1252', 'UTF-8', $string);
             Debugger::log('PP-IPN:' . $string);
-            $this->slack->sendMessage("*Příchozí PP-IPN platba!*\n```" . $string . "```");
+            $this->slack->sendMessage("*Příchozí PP-IPN platba!*\n```" . iconv($_POST['charset'], 'UTF-8', $string) . "```");
 
             if($_POST['receiver_email'] == 'mail@davidindra.cz'){
                 $userId = $_POST['custom'];
@@ -38,7 +37,7 @@ class PaypalipnPresenter extends BasePresenter
                     $creditRecord = new CreditRecord();
                     $creditRecord->user = $user;
                     $creditRecord->value = $gross - $fee;
-                    $creditRecord->description = 'Dobití pomocí PayPal (' . $name . '), poplatek za transakci pro PayPal ' . $fee . ' Kč';
+                    $creditRecord->description = 'Dobití přes PayPal (' . $name . '), z ' . $gross . ' Kč činí poplatek pro PayPal ' . $fee . ' Kč';
 
                     $this->credits->add($creditRecord);
 

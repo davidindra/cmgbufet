@@ -11,9 +11,7 @@
             </p>
         </div>
         <div class="col s12 flow-text">
-            <b>Dobít kredity</b> je možné pomocí jednoho ze dvou způsobů - buďto hotovostně u někoho z organizátorů
-            ve škole, nebo bezhotovostně převodem pomocí služby PayPal. Ihned po hotovostním přijetí dobití kreditů
-            se tato změna objeví níže v historii pohybů. Dobití pomocí PayPalu je možné kliknutím zde:
+            <b>Dobít kredity</b> je možné buďto hotovostně u někoho z organizátorů ve škole, nebo bezhotovostně převodem pomocí služby PayPal - to je možné kliknutím zde:
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="Q4DYZS2GSKTT4">
@@ -21,6 +19,10 @@
                 <input type="image" src="/img/paypal.png" border="0" name="submit"
                        alt="PayPal - The safer, easier way to pay online!">
             </form>
+            <span class="fee">
+                <!--Jelikož se při transakci skrze PayPal hradí poplatek (10 Kč + ~2% z výše platby), který nemůžeme ovlivnit, doporučujeme dobíjet vyšší částky za delší časové období.-->
+                (Při dobití pomocí PayPal se z platby odepíše poplatek 10 Kč + ~2% z výše platby, který nemůžeme ovlivnit; doporučujeme proto dobíjet spíše vyšší částky.)
+            </span>
         </div>
         <div class="col s12" n:if="$creditRecords">
             <table class="bordered">
@@ -31,12 +33,11 @@
                     <th>popis</th>
                 </tr>
                 <tr n:foreach="$creditRecords as $creditRecord">
-                    {var $positive = $creditRecord->value > 0}
                     <td>
                         {$creditRecord->datetime|date:'d.m.Y G:i'}
                     </td>
-                    <td class="bold {$positive ? 'green-text' : 'coolred-text'}">
-                        {$positive ? 'příjem' : 'výdaj'}
+                    <td class="bold {$creditRecord->isPositive() ? 'green-text' : 'coolred-text'}">
+                        {$creditRecord->isPositive() ? 'příjem' : 'výdaj'}
                     </td>
                     <td class="bold">
                         {$creditRecord->value > 0 ? $creditRecord->value : -$creditRecord->value} Kč
