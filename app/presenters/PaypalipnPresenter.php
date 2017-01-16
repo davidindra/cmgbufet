@@ -19,6 +19,7 @@ class PaypalipnPresenter extends BasePresenter
             foreach($_POST as $key => $value){
                 $string .= $key . ': ' . $value . '; ';
             }
+            $string = iconv('Windows-1252', 'UTF-8', $string);
             Debugger::log('PP-IPN:' . $string);
             $this->slack->sendMessage("*Příchozí PP-IPN platba!*\n```" . $string . "```");
 
