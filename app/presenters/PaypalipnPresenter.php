@@ -17,7 +17,7 @@ class PaypalipnPresenter extends BasePresenter
         if ($this->verifyIPN()) {
             $string = '';
             foreach($_POST as $key => $value){
-                $string .= $key . ': ' . $value . ', ';
+                $string .= $key . ': ' . $value . '; ';
             }
             Debugger::log('PP-IPN:' . $string);
             $this->slack->sendMessage("*Příchozí PP-IPN platba!*\n```" . $string . "```");
@@ -84,8 +84,8 @@ class PaypalipnPresenter extends BasePresenter
 
         // Post the data back to PayPal, using curl. Throw exceptions if errors occur.
 
-        //$ch = curl_init('https://www.paypal.com/cgi-bin/webscr');
-        $ch = curl_init('https://www.sandbox.paypal.com/cgi-bin/webscr');
+        $ch = curl_init('https://www.paypal.com/cgi-bin/webscr');
+        //$ch = curl_init('https://www.sandbox.paypal.com/cgi-bin/webscr');
 
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ch, CURLOPT_POST, 1);
