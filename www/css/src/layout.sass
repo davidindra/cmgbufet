@@ -55,7 +55,6 @@ footer.page-footer
   //width: 100%
 
 // AJAX spinner
-
 #ajax-spinner
   position: fixed
   width: 32px
@@ -64,3 +63,13 @@ footer.page-footer
   right: 16px
   background: url("/img/spinner.gif") no-repeat
   background-size: cover
+
+// sticky footer
+body
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+//main
+div#snippet--content
+  flex: 1 0 auto

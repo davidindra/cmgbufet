@@ -50,7 +50,8 @@
             <li n:class="$presenter->isLinkCurrent('Offer:*') ? active"><a n:href="Offer:" class="ajax">Aktuální
                     nabídka</a></li>
             {if $user->isLoggedIn()}
-                <li n:class="$presenter->isLinkCurrent('Cart:*') ? active"><a n:href="Cart:" class="ajax" n:inner-snippet="cartItemsNumber">Košík
+                <li n:class="$presenter->isLinkCurrent('Cart:*') ? active"><a n:href="Cart:"
+                            class="ajax" n:inner-snippet="cartItemsNumber">Košík
                         {if $cartTotal == 0}(<b>0 položek</b>)
                         {elseif $cartTotal == 1}(<b>1 položka</b>)
                         {elseif $cartTotal <= 4}(<b>{$cartTotal} položky</b>)
