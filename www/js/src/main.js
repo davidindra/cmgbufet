@@ -14,13 +14,19 @@ function init(ajax) {
     //window.history.pushState('', '', '/' + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
     window.history.pushState('', '', window.location.pathname);
 
-    /*$('nav li').each(function(menuitem){
-        if(window.location.pathname.lastIndexOf($(menuitem).find('a').href)){
-            $(menuitem).addClass('active');
+    // highlight menu item
+    $('nav li').each(function(){
+        //console.log(window.location.pathname + ' vs. ' + $(this).find('a').attr('href'));
+        if(
+            (window.location.pathname.lastIndexOf($(this).find('a').attr('href')) !== -1
+             && $(this).find('a').attr('href') != '/')
+            || (window.location.pathname == $(this).find('a').attr('href'))
+        ){
+            $(this).addClass('active');
         }else{
-            $(menuitem).removeClass('active');
+            $(this).removeClass('active');
         }
-    });*/
+    });
 
     // separate pages control
     console.log(_page + ':' + _pageAction);
