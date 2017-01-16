@@ -31,7 +31,7 @@ function init(ajax) {
 
     // Materialize things common for multiple pages
     flashes.forEach(function (flash) {
-        Materialize.toast(flash, 3000, 'rounded');
+        Materialize.toast(flash, 4300, 'rounded');
     });
 
     $('div.material-tooltip').remove();

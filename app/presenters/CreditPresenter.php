@@ -11,13 +11,9 @@ class CreditPresenter extends BasePresenter
 		$this->template->creditRecords = $this->credits->getByUser($this->user->id, true);
 	}
 
-	public function actionEdit()
+	public function actionPaypalSuccess()
 	{
-		
-	}
-	
-	public function handleRemove()
-	{
-	    
+		$this->flashMessage('Platba byla přijata! :) Připsána bude za pár chvil.');
+		$this->redirect('Credit:');
 	}
 }
