@@ -19,7 +19,7 @@ class CreditRecord
     protected $user;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     protected $value;
 
