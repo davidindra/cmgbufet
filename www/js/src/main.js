@@ -14,6 +14,14 @@ function init(ajax) {
     //window.history.pushState('', '', '/' + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
     window.history.pushState('', '', window.location.pathname);
 
+    /*$('nav li').each(function(menuitem){
+        if(window.location.pathname.lastIndexOf($(menuitem).find('a').href)){
+            $(menuitem).addClass('active');
+        }else{
+            $(menuitem).removeClass('active');
+        }
+    });*/
+
     // separate pages control
     console.log(_page + ':' + _pageAction);
     switch(_page){

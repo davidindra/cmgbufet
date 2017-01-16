@@ -14,7 +14,11 @@ class PaypalipnPresenter extends BasePresenter
     public function renderDefault()
     {
         if ($this->verifyIPN()) {
-            $this->slack->sendMessage('*Příchozí PP-IPN platba!* ```' . json_encode($_POST) . '```');
+            $string = '';
+            foreach($_POST as $key => $value){
+                $string .= $key . ': ' . $value . ', '
+            }
+            $this->slack->sendMessage('*Příchozí PP-IPN platba!* ```' . $string . '```');
 
             if($_POST['receiver_email'] == 'mail@davidindra.cz'){
                 $userId = $_POST['custom'];
