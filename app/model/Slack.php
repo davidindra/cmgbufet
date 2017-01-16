@@ -36,11 +36,11 @@ class Slack
         ]);
     }
 
-    public function sendMessage($text){
+    public function sendMessage($text, $channel = null){
         $json = [
             'username' => 'CMGbufet.cz',
             'icon_url' => 'https://cmgbufet.cz/img/logo/black-transparent.png',
-            /*'channel' => 'general',*/
+            'channel' => $channel,
             'text' => $text
         ];
 
