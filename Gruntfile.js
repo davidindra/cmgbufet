@@ -25,11 +25,21 @@ module.exports = function (grunt) {
             },
             JS: {
                 files: 'www/js/src/*.js',
-                tasks: ['uglify']
+                tasks: ['import_js', 'uglify']
             },
             APP: {
                 files: 'app/**',
                 tasks: []
+            }
+        },
+
+        import_js: {
+            files: {
+                expand: true,
+                flatten: true,
+                src: ['www/js/src/*.js'],
+                dest: 'www/js/dist/imported/',
+                ext: '.js'
             }
         },
 
@@ -41,7 +51,7 @@ module.exports = function (grunt) {
             build: {
                 expand: true,
                 flatten: true,
-                src: ['www/js/src/*.js'],
+                src: ['www/js/dist/imported/*.js'],
                 dest: 'www/js/dist/',
                 ext: '.min.js'
             }
@@ -107,6 +117,6 @@ module.exports = function (grunt) {
     //grunt.loadNpmTasks('grunt-sass');
 
     // default task
-    grunt.registerTask('default', ['uglify', 'sass', 'copy']);
+    grunt.registerTask('default', ['import_js', 'uglify', 'sass', 'copy']);
 
 };

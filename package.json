@@ -18,6 +18,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^0.5.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-import-js": "^0.1.4",
     "grunt-sass": "^2.0.0",
     "load-grunt-tasks": "^3.5.2"
   }
