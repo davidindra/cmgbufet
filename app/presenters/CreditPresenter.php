@@ -4,7 +4,7 @@ namespace App\Presenters;
 
 use Nette;
 
-class CreditPresenter extends BasePresenter
+class CreditPresenter extends BaseOnlyLoggedInPresenter
 {
 	public function renderDefault()
 	{
