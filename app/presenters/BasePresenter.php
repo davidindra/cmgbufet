@@ -31,10 +31,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
     public function startup()
     {
-        if($this->user->isInRole('admin')){
-            Debugger::enable(Debugger::DEVELOPMENT);
-        }
-
         $this->secrets = json_decode(file_get_contents(__DIR__ . '/../config/secrets.json'));
 
         parent::startup();
