@@ -4,14 +4,13 @@
         <div class="row">
             <div class="col s12">
                 <h3 class="coolred-text bold" n:inner-block="title">
-                    Nákupní košík
+                    Shrnutí objednávky
                 </h3>
                 <p class="flow-text">
-                    V nákupním košíku zkontroluješ Tvoji objednávku, zjistíš informace ohledně jejího odběru a
-                    zaplacení.
+                    Níže zkontroluj svoji objednávku. Až si budeš jistý její správností, potvrď ji tlačítkem pod souhrnem.
                 </p>
-                <p class="flow-text" n:if="$cart->itemsTotal() == 0">
-                    Tvůj košík je prázdný :( Nechceš se rovnou podívat na <a n:href="Offer:">aktuální nabídku</a>?
+                <p class="flow-text">
+                    <b>Důležité informace o předání</b>: <i>tady bude napsané, kdy a kde bude organizátor stát, tzn. kde je možné si od něj svačinu přebrat. Taky informace o tom, co dělat, pokud si objednávku rozmyslím, předpokládaná doba dodání (následující den)...</i>
                 </p>
             </div>
             <div class="col s12">
@@ -65,30 +64,12 @@
                 </table>
             </div>
         </div>
-        <div class="row" n:if="$cart->itemsTotal() > 0">
-            <div class="col s12 l6 right-align hide-on-med-and-down">
-                <a class="btn-large coolred ajax" n:href="Cart:summary 1">
-                    <b>Předobjednat</b> a zaplatit <b>předem</b>
-                </a>
-            </div>
-            <div class="col s12 l6 left-align hide-on-med-and-down">
-                <a class="btn-large coolred ajax" n:href="Cart:summary 2">
-                    <b>Předobjednat</b> a zaplatit <b>hotově</b>
-                </a>
-            </div>
-            <div class="col s12 l6 center-align hide-on-large-only">
-                <a class="btn-large coolred ajax" n:href="Cart:summary 1">
-                    <b>Předobjednat</b> a zaplatit <b>předem</b>
-                </a>
-            </div>
-            <div class="col s12 l6 center-align hide-on-large-only">
-                <a class="btn-large coolred ajax" n:href="Cart:summary 2">
-                    <b>Předobjednat</b> a zaplatit <b>hotově</b>
+        <div class="row">
+            <div class="col s12 center-align">
+                <a class="btn-large coolred ajax">
+                    <b>Předobjednat</b> a zaplatit <b>{if $type == 1}předem{else}hotově{/if}</b>
                 </a>
             </div>
         </div>
-    </div>
-    <div class="section row">
-        {* aktivni objednavky, historie objednavek (stav odliseny barvami - historicka zelena) *}
     </div>
 </div>

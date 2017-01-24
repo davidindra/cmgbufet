@@ -32,7 +32,8 @@ class RouterFactory
 				Route::FILTER_TABLE => [
 					'prihlasit' => 'login',
 					'odhlasit' => 'logout',
-					'uspech' => 'paypalSuccess'
+					'uspech' => 'paypalSuccess',
+					'shrnuti' => 'summary'
 				]
 			]
 		]);
