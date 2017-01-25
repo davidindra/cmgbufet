@@ -32,6 +32,16 @@ class User
      */
     protected $credits;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Order", inversedBy="customer")
+     */
+    protected $orders;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Order", inversedBy="maintainedBy")
+     */
+    protected $maintainedOrders;
+
     public function __construct()
     {
         $this->isAdmin = false;

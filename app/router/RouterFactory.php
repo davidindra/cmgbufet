@@ -17,6 +17,17 @@ class RouterFactory
 	public static function createRouter()
 	{
 		$router = new RouteList;
+		$router[] = new Route('kosik/shrnuti/<type>', [
+			'presenter' => 'Cart',
+			'action' => 'summary',
+			'type' => [
+				Route::VALUE => null,
+				Route::FILTER_TABLE => [
+					'predem' => 1,
+					'hotove' => 2
+				]
+			]
+		]);
 		$router[] = new Route('<presenter>[/<action>]', [
 			'presenter' => [
 				Route::VALUE => 'Homepage',

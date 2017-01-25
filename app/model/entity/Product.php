@@ -47,6 +47,11 @@ class Product
      */
     protected $priceWorse;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Order", mappedBy="products")
+     */
+    protected $orders;
+
     public function __construct()
     {
         $this->visible = true;
