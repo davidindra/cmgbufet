@@ -2,9 +2,18 @@
 @import "materialize-addons"
 
 main#offer
-  .item
-    @media (max-width: $small-bp)
-      text-align: center
+  .item-col
+    .item
+      padding: 1em
+    &:last-child
+      @media (max-width: $small-bp) and (min-width: $mini-bp)
+        width: 100%
+        .item
+          width: calc(50% - 1em)
+          float: left
+          margin: 0 0 0 1em
+          &:nth-child(odd)
+            margin: 0 1em 0 0
 
     img
       max-height: 20em

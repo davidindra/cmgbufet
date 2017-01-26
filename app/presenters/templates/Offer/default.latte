@@ -13,8 +13,14 @@
         </div>
     </div>
     <div class="section row">
-        {foreach $products as $product}
-            <div class="col s12 m6 l4 item">
+      {var $length = count($products)}
+      {var $coeficient = ceil($length / 3)}
+        {for $i = 0; $i <= 2; $i++}
+          <div class="col s12 m6 l4 item-col">
+          {for $x = $i*$coeficient; $x < ($i+1)*$coeficient; $x++}
+            {if isset($products[$x])}
+              {var $product = $products[$x]}
+            <div class="item card grey lighten-4">
                 <div class="center">
                     <img n:attr="src => $product->image" class="responsive-img">
                 </div>
@@ -48,9 +54,16 @@
                     </div>
                 </div>
             </div>
+            {/if}
+          {/for}
+          </div>
+        {/for}
+
+        {*
+        {foreach $products as $product}
             <div class="hide-on-small-only hide-on-large-only clearfix" n:if="$iterator->counter % 2 == 0 && $iterator->counter != 0"></div>
             <div class="hide-on-med-only clearfix" n:if="$iterator->counter % 3 == 0 && $iterator->counter != 0"></div>
-        {/foreach}
+        {/foreach}*}
         <div n:if="count($products) == 0" class="col s12">
             <p class="flow-text">
                 Omlouváme se, ale momentálně nenabízíme žádné produkty.

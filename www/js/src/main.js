@@ -1,4 +1,4 @@
-function init(ajax) { aa 
+function init(ajax) {
     if (!ajax) {
         $.nette.init();
         $('.button-collapse').sideNav();
