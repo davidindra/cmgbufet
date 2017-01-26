@@ -22,6 +22,8 @@ services:
     - App\Model\Repository\Products
     - App\Model\Entity\CreditRecord
     - App\Model\Repository\CreditRecords
+    - App\Model\Entity\Order
+    - App\Model\Repository\Orders
 
     - App\Model\Slack
     - App\Model\Cart

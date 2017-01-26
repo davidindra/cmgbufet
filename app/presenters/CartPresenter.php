@@ -26,11 +26,19 @@ class CartPresenter extends BaseOnlyLoggedInPresenter
 	}
 
 	public function renderSummary($type){
-		$this->template->cart = $this->cart;
-		$this->template->type = $type;
-
 		if($this->cart->itemsTotal() == 0 || !isset($type)){
 			$this->redirect('Cart:');
 		}
+
+		$this->template->cart = $this->cart;
+		$this->template->type = $type;
+	}
+
+	public function renderComplete($type){
+		if($this->cart->itemsTotal() == 0 || !isset($type)){
+			$this->redirect('Cart:');
+		}
+
+		$this->cart->purge();
 	}
 }

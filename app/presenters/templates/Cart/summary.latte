@@ -66,8 +66,8 @@
         </div>
         <div class="row">
             <div class="col s12 center-align">
-                <a class="btn-large coolred ajax">
-                    <b>Předobjednat</b> a zaplatit <b>{if $type == 1}předem{else}hotově{/if}</b>
+                <a class="btn-large coolred ajax" n:href=":complete $type">
+                    <b>Potvrdit objednávku</b> s platbou <b>{if $type == 1}předem{else}hotově{/if}</b>
                 </a>
             </div>
         </div>

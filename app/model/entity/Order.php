@@ -48,7 +48,7 @@ class Order
      */
     protected $completedOn;
 
-    public function __construct(User $customer, bool $prepaid, array $products, float $priceTotal)
+    public function __construct(User $customer, bool $prepaid = false, array $products = [], float $priceTotal = 0)
     {
         $this->createdOn = new DateTime();
         $this->customer = $customer;
