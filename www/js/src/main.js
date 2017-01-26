@@ -5,7 +5,7 @@ function init(ajax) {
     }else{
         $('.button-collapse').sideNav('hide');
 
-        if (typeof ga != 'undefined') {
+        if (typeof ga != 'undefined') { 
             ga('send', 'pageview');
         }
     }
