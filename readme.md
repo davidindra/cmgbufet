@@ -22,11 +22,9 @@ Pro instalaci eshopu na vlastní počítač z důvodu podílení se na vývoji j
 - nastavení práv pro zápis `temp/` a `log/`
 - vytvoření schématu databáze pomocí Doctrine2
 
-Při vývoji pro kompilaci JS a SASS je třeba spustit `grunt watch`.
+Vývojové prostředí je možno spustit příkazem `npm run dev` - zajistí spuštění webserveru na _localhost:3000_ a také kompilaci Sass a JS.
 
 Schéma databáze se vytvoří/aktualizuje pomocí `php www/index.php orm:schema-tool:update --force --dump-sql`
-
-Webový server lze spustit přibližně příkazem `php -S localhost:3000 -t www`.
 
 Zda jsou splněny všechny podmínky, které Nette Framework vyžaduje pro svůj běh je možno otestovat pomocí přístupu na adresu `http://localhost:3000/checker`.
 
