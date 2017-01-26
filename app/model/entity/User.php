@@ -33,12 +33,12 @@ class User
     protected $credits;
 
     /**
-     * @ORM\OneToMany(targetEntity="Order", inversedBy="customer")
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="customer")
      */
     protected $orders;
 
     /**
-     * @ORM\OneToMany(targetEntity="Order", inversedBy="maintainedBy")
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="maintainedBy")
      */
     protected $maintainedOrders;
 
