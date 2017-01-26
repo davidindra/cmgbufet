@@ -1,11 +1,11 @@
-function init(ajax) {
+function init(ajax) { aa 
     if (!ajax) {
         $.nette.init();
         $('.button-collapse').sideNav();
     }else{
         $('.button-collapse').sideNav('hide');
 
-        if (typeof ga != 'undefined') { 
+        if (typeof ga != 'undefined') {
             ga('send', 'pageview');
         }
     }
