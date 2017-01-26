@@ -30,7 +30,7 @@ Webový server lze spustit přibližně příkazem `php -S localhost:3000 -t www
 
 Zda jsou splněny všechny podmínky, které Nette Framework vyžaduje pro svůj běh je možno otestovat pomocí přístupu na adresu `http://localhost:3000/checker`.
 
-Je zahrnut správce databáze Adminer - použít lze skrze tuto adresu `http://localhost:8000/adminer`.
+Je zahrnut správce databáze Adminer - použít lze skrze tuto adresu `http://localhost:3000/adminer`.
 
 Licence
 -------
