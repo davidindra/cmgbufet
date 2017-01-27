@@ -62,7 +62,7 @@
                             (<b>{$creditBalance} Kč</b>)</a></li>
                     <li><a n:href="Account:" class="ajax">Můj
                             účet</a></li>
-                    <li><a href="#" onclick="gapiSignOut()">Odhlásit se (<b>{$user->identity->name}</b>)</a></li>
+                    <li><a href="#" onclick="Gapi.signOut()">Odhlásit se (<b>{$user->identity->name}</b>)</a></li>
                 {else}
                     <li><a n:href="Account:login"
                                 class="ajax">Přihlásit se</a></li>
