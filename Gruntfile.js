@@ -37,9 +37,14 @@ module.exports = function (grunt) {
             files: {
                 expand: true,
                 flatten: true,
-                src: ['www/js/src/*.js'],
+                src: ['*.js'],
                 dest: 'www/js/dist/imported/',
-                ext: '.js'
+                ext: '.js',
+                filter: function(e) {
+                    var pattern = /\\_+.[^\\]+.js/i; // files beginning with dash
+                    return !pattern.test(e); // compile only files NOT beginning with dash
+                },
+                cwd: "www/js/src/" // parent folder - needed for plugin to work properly
             }
         },
 

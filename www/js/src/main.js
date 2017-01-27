@@ -1,3 +1,4 @@
+@import '_test.js';
 function init(ajax) {
     if (!ajax) {
         $.nette.init();
