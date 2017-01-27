@@ -1,11 +1,7 @@
-var pageSources = {
-    Homepage: function(ajax) {
-        @import '_homepage.js';
-    },
-    Account: function(ajax) {
-        @import '_account.js';
-    },
-}
+var pages = [];
+
+//@import '_homepage.js';
+//@import '_account.js';
 
 function init(ajax) {
     if (!ajax) {
@@ -14,18 +10,16 @@ function init(ajax) {
     }else{
         $('.button-collapse').sideNav('hide');
 
-        if (typeof ga != 'undefined') {
-            ga('send', 'pageview');
+        if (typeof ga != 'undefined') { // not used yet
+            //ga('send', 'pageview');
         }
     }
 
     // remove GET parameters
-    //window.history.pushState('', '', '/' + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
     window.history.pushState('', '', window.location.pathname);
 
     // highlight menu item
     $('nav li').each(function(){
-        //console.log(window.location.pathname + ' vs. ' + $(this).find('a').attr('href'));
         if(
             (window.location.pathname.lastIndexOf($(this).find('a').attr('href')) !== -1
              && $(this).find('a').attr('href') != '/')
@@ -37,16 +31,19 @@ function init(ajax) {
         }
     });
 
-    // separate pages control
+
+    // custom scripts for pages
     console.log(_page + ':' + _pageAction);
-    if (pageSources[_page]) // some function is available for current page
-        pageSources[_page](ajax); // call the function
+    if (pages[_page]) // function is available
+        pages[_page](ajax); // call it
+
 
     // Materialize things common for multiple pages
     flashes.forEach(function (flash) {
         Materialize.toast(flash, 4300, 'rounded');
     });
 
+    // tooltips
     $('div.material-tooltip').remove();
     $('.tooltipped').tooltip({delay: 100, html: true, position: 'top'});
 }

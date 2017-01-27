@@ -1,1 +1,3 @@
-$('.parallax').parallax();
+pages['Homepage'] = function(ajax) {
+    $('.parallax').parallax();
+}
