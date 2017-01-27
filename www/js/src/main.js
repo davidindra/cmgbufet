@@ -4,16 +4,15 @@ var pages = [];
 //@import '_account.js';
 
 function init(ajax) {
-    if (!ajax) {
-        $.nette.init();
-        $('.button-collapse').sideNav();
-    }else{
-        $('.button-collapse').sideNav('hide');
+    if (!ajax) $.nette.init(); // Nette.ajax.js
 
-        if (typeof ga != 'undefined') { // not used yet
-            //ga('send', 'pageview');
-        }
-    }
+    // side menu
+    if (!ajax) $('.button-collapse').sideNav();
+    else $('.button-collapse').sideNav('hide');
+
+    /*if (ajax && typeof ga != 'undefined') { // not used yet
+        ga('send', 'pageview');
+    }*/
 
     // remove GET parameters
     window.history.pushState('', '', window.location.pathname);
