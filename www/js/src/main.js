@@ -1,4 +1,12 @@
-@import '_test.js';
+var pageSources = {
+    Homepage: function(ajax) {
+        @import '_homepage.js';
+    },
+    Account: function(ajax) {
+        @import '_account.js';
+    },
+}
+
 function init(ajax) {
     if (!ajax) {
         $.nette.init();
@@ -31,18 +39,8 @@ function init(ajax) {
 
     // separate pages control
     console.log(_page + ':' + _pageAction);
-    switch(_page){
-        case 'Homepage':
-            $('.parallax').parallax();
-            break;
-        case 'Account':
-            if(ajax) {
-                gapiRenderButton(); // GAPI is already setted up, so we can just render
-            }else{
-                gapiRenderButtonNeeded = true; // set rendering as needed - will be done in GAPI onLoad method
-            }
-            break;
-    }
+    if (pageSources[_page]) // some function is available for current page
+        pageSources[_page](ajax); // call the function
 
     // Materialize things common for multiple pages
     flashes.forEach(function (flash) {
