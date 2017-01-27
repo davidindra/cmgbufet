@@ -6,9 +6,9 @@ main#offer
     .item
       padding: 1em
     &:last-child
-      @media (max-width: $small-bp) and (min-width: $mini-bp)
+      @media #{$tablet-only}
         width: 100%
-        .item
+        .item // show two column layout on tablets
           width: calc(50% - 1em)
           float: left
           margin: 0 0 0 1em
@@ -20,7 +20,7 @@ main#offer
 
     p
       text-align: justify
-      @media (max-width: $small-bp)
+      @media #{$mobile-only}
         text-align: center
       line-height: 1.4rem
       margin: 0.3em 0
@@ -51,7 +51,7 @@ main#offer
       text-align: right
       padding-top: 11px
       //white-space: nowrap
-      @media (max-width: $small-bp)
+      @media #{$mobile-only}
         text-align: center
 
       .addtocart

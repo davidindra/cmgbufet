@@ -1,8 +1,21 @@
-$mini-bp: 600px
-$small-bp: 991px
-$medium-bp: 992px
-$large-bp: 1200px
+// Usage is simple: @media #{$variableName}
+
+//  for example
+//
+//  @media #{$mobile-only}
+//    div
+//      display: none
+//
+//  is going to hide all divs on mobiles
+
+$mobile-only: "screen and (max-width: 600px)"                             // only mobile devices
+$not-mobile: "screen and (min-width: 601px)"                              // tablet and desktop devices
+$tablet-only: "screen and (max-width: 992px) and (min-width: 601px)"      // only tablet devices
+$not-tablet: "screen and (min-width: 601px)"                              // desktop and mobile devices
+$desktop-only: "screen and (min-width: 993px)"                            // only desktop devices
+$not-desktop: "screen and (max-width: 992px)"                             // mobile and tablet devices
+
 
 .center-on-small-only
-  @media (max-width: $small-bp)
+  @media #{$not-desktop}
     text-align: center

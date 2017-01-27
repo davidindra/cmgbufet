@@ -21,7 +21,7 @@ nav ul a
 
   .section
     width: 100%
-    @media only screen and (max-width : 992px)
+    @media #{$not-desktop}
       position: absolute
       top: 40%
 
@@ -29,9 +29,9 @@ nav ul a
   padding-top: 2ex
 
 #index-banner .section
-  @media only screen and (max-width : 992px)
+  @media #{$not-desktop}
     top: 10%
-  @media only screen and (max-width : 600px)
+  @media #{$mobile-only}
     top: 0
 
 .btn-large:hover
@@ -74,3 +74,7 @@ body
 //main
 div#snippet--content
   flex: 1 0 auto
+
+@media #{$not-desktop}
+  #tracy-debug-bar
+    display: none !important  
